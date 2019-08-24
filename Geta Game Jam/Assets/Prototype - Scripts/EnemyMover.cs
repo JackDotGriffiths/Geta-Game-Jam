@@ -29,6 +29,15 @@ public class EnemyMover : MonoBehaviour
         } 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            isFighting = true;
+            GetComponent<Enemy>().StartStructureBattle(collision.GetComponent<BuildingHealthControl>());
+        }
+    }
+
     void Attacked(Fighter attacker)
     {
         isFighting = true;

@@ -11,6 +11,7 @@ public class Fighter : MonoBehaviour
     private bool isInFight;
     private bool isAtStructure;
     private Fighter m_currentOpponent;
+    private BuildingHealthControl m_currentStructure;
 
     public float Health { get => m_health; set => m_health = value; }
     public float Damage { get => m_damage; set => m_damage = value; }
@@ -18,6 +19,8 @@ public class Fighter : MonoBehaviour
     public float AttackSpeed { get => m_attackSpeed; set => m_attackSpeed = value; }
     public bool IsInFight { get => isInFight; set => isInFight = value; }
     public bool IsAtStructure { get => isAtStructure; set => isAtStructure = value; }
+    public Fighter CurrentOpponent { get => m_currentOpponent; set => m_currentOpponent = value; }
+    public BuildingHealthControl CurrentStructure { get => m_currentStructure; set => m_currentStructure = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -33,32 +36,50 @@ public class Fighter : MonoBehaviour
 
     public void StartFight(Fighter _oppponent)
     {
-        isInFight = true;
-        m_currentOpponent = _oppponent;
+        if (!IsInFight)
+        {
+            IsInFight = true;
+            CurrentOpponent = _oppponent;
+            InvokeRepeating("AttackOpponent", 0, AttackSpeed);
+        }
+    }
+
+    public void StartStructureBattle(BuildingHealthControl _structure)
+    {
+        if (!IsInFight)
+        {
+            IsInFight = true;
+            CurrentStructure = _structure;
+            InvokeRepeating("AttackStructure", 0, AttackSpeed);
+        }
     }
 
     public void StopFight()
     {
-        isInFight = false;
-        m_currentOpponent = null;
+        IsInFight = false;
+        CurrentOpponent = null;
     }
 
     public void AttackStructure()
     {
-
+        CurrentStructure.Attack(Damage);
     }
 
     public void AttackOpponent()
     {
-        m_currentOpponent.TakeDamage(m_damage);
-        Debug.Log("Attck");
+        if (CurrentOpponent != null)
+        {
+            CurrentOpponent.TakeDamage(Damage);
+            Debug.Log("Attck");
+        }
     }
 
     public void TakeDamage(float _damage)
     {
-        m_health -= _damage;
+        Debug.Log("Got attacked");
+        Health -= _damage;
 
-        if(m_health <= 0)
+        if(Health <= 0)
         {
             Die();
         }

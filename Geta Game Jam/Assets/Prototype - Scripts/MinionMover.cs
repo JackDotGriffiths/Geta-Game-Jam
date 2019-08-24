@@ -43,11 +43,16 @@ public class MinionMover : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Portal")
+        if(collision.gameObject.tag == "Enemy")
         {
             isFighting = true;
             collision.SendMessage("Attacked", GetComponent<Minion>());
             GetComponent<Minion>().StartFight(collision.GetComponent<Enemy>());
+        }
+        else if(collision.gameObject.tag == "Portal")
+        {
+            isFighting = true;
+            GetComponent<Minion>().StartStructureBattle(collision.GetComponent<BuildingHealthControl>());
         }
     }
 

@@ -21,12 +21,12 @@ public class BuildingHealthControl : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        fullHealthBar.fillAmount = Health / InitialHealth;
+        fullHealthBar.fillAmount = (float)Health / (float)InitialHealth;
     }
 
-    public void Attack(int DamageValue)
+    public void Attack(float DamageValue)
     {
-        Health -= DamageValue;
+        Health -= (int)DamageValue;
         UpdateHealthBar();
     }
 }

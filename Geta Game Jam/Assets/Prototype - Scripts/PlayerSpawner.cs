@@ -20,6 +20,9 @@ public class PlayerSpawner : MonoBehaviour
 
     private int m_elementIndex = 0;
 
+    [SerializeField]
+    private float m_minionHealth, m_minionAttackSpeed, m_minionDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +73,10 @@ public class PlayerSpawner : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("spawned");
-            GameObject cloneBullet = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+            GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+            minion.GetComponent<Minion>().Health = m_minionHealth;
+            minion.GetComponent<Minion>().Damage = m_minionDamage;
+            minion.GetComponent<Minion>().AttackSpeed = m_minionAttackSpeed;
         }
     }
 
