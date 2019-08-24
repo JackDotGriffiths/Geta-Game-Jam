@@ -421,6 +421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c835afde70c064f8d41c0e0f31dbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_numberOfAngles: 4
+  m_angleToUse: 0
+  m_angles: []
 --- !u!114 &924435675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +439,8 @@ MonoBehaviour:
   minionSpawn: {fileID: 76220874}
   minionPrefab: {fileID: 2509534044061061290, guid: 8f47163c07a2b634e93738751d9ac5ab,
     type: 3}
+  m_currentElement: 0
+  m_allElements: 
 --- !u!1 &1304787824
 GameObject:
   m_ObjectHideFlags: 0
