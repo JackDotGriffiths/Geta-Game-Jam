@@ -15,11 +15,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float[] m_angles;
 
+    [SerializeField]
+    private Elements[] m_allElements;
+
     public static GameManager Instance { get => m_instance; set => m_instance = value; }
     public int NumberOfAngles { get => m_numberOfAngles; set => m_numberOfAngles = value; }
     public float AngleToUse { get => m_angleToUse; set => m_angleToUse = value; }
     public float[] Angles { get => m_angles; set => m_angles = value; }
     public float Radius { get => m_radius; set => m_radius = value; }
+    public Elements[] AllElements { get => m_allElements; set => m_allElements = value; }
 
     private void Awake()
     {
