@@ -19,6 +19,9 @@ public class SpawnManager : MonoBehaviour
     [Tooltip("Offset Radius will prevent Enemy getting stuck behind portal. Should always be higher than Spawner Radius")]
     private float offsetRadius = 1.2f;
 
+    [SerializeField]
+    private float m_enemyHealth, m_enemyAttackSpeed, m_enemyDamage;
+
     private float nextSpawn;
 
     private GameObject[] spawners;
@@ -53,12 +56,11 @@ public class SpawnManager : MonoBehaviour
             Vector3 generatedSpawnPosition = chosenSpawner.position + offset;
 
             GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
+            enemyClone.GetComponent<Enemy>().Health = m_enemyHealth;
+            enemyClone.GetComponent<Enemy>().Damage = m_enemyDamage;
+            enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
 
             Destroy(randomSpawnradius);
-
-
-
-
         }
     }
 }

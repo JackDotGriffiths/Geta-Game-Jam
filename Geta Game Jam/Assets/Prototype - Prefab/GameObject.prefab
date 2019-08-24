@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1482662685488730764}
-  - component: {fileID: 3896358984848597253}
   - component: {fileID: 8775988664254241703}
+  - component: {fileID: -3100002585097707596}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Portal
@@ -33,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8775988664254241703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482662685488730763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da5757c65c36c148b58aa7859cdfb47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullHealthBar: {fileID: 5321684735539162306}
+  Health: 100
 --- !u!58 &-3100002585097707596
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -49,20 +63,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
---- !u!114 &8775988664254241703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482662685488730763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da5757c65c36c148b58aa7859cdfb47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullHealthBar: {fileID: 5321684735539162306}
-  Health: 100
 --- !u!1 &2214852145919762601
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 5bdd81f436036914a9d13fe3a8eec563, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0

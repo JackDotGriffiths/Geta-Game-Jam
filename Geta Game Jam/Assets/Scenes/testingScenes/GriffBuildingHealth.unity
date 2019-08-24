@@ -460,6 +460,9 @@ MonoBehaviour:
   interval: 0.5
   spawnerRadius: 0.5
   offsetRadius: 0.8
+  m_enemyHealth: 10
+  m_enemyAttackSpeed: 1
+  m_enemyDamage: 3
 --- !u!4 &719853352
 Transform:
   m_ObjectHideFlags: 0
@@ -670,6 +673,7 @@ GameObject:
   - component: {fileID: 885676407}
   - component: {fileID: 885676406}
   - component: {fileID: 885676410}
+  - component: {fileID: 885676411}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -694,6 +698,9 @@ MonoBehaviour:
     type: 3}
   m_currentElement: 0
   m_allElements: 000000000100000002000000
+  m_minionHealth: 10
+  m_minionAttackSpeed: 2
+  m_minionDamage: 3
 --- !u!114 &885676407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,6 +791,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHealthBar: {fileID: 1005003865}
   Health: 200
+--- !u!58 &885676411
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885676405}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.51
 --- !u!1 &1005003863
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +865,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 5bdd81f436036914a9d13fe3a8eec563, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
