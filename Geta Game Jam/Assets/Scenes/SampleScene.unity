@@ -439,6 +439,7 @@ MonoBehaviour:
   minionSpawn: {fileID: 76220874}
   minionPrefab: {fileID: 2509534044061061290, guid: 8f47163c07a2b634e93738751d9ac5ab,
     type: 3}
+<<<<<<< HEAD
 --- !u!1 &1304787824
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,3 +550,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
+  m_currentElement: 0
+  m_allElements: 000000000100000002000000
+>>>>>>> SelectingElements
