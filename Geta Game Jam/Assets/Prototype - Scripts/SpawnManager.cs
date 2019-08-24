@@ -64,6 +64,8 @@ public class SpawnManager : MonoBehaviour
 
             enemyClone.GetComponent<Enemy>().Element = randomElement;
 
+            SetStrengthsAndWeaknesses(enemyClone.GetComponent<Enemy>());
+
             SetEnemyColour(enemyClone);
 
             enemyClone.GetComponent<Enemy>().Health = m_enemyHealth;
@@ -71,6 +73,27 @@ public class SpawnManager : MonoBehaviour
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
 
             Destroy(randomSpawnradius);
+        }
+    }
+
+    private void SetStrengthsAndWeaknesses(Fighter enemy)
+    {
+        switch (enemy.GetComponent<Enemy>().Element)
+        {
+            case Elements.Fire:
+                enemy.StrongAgainst = new Elements[] { Elements.Grass };
+                enemy.WeakAgainst = new Elements[] { Elements.Water };
+                break;
+            case Elements.Water:
+                enemy.GetComponent<SpriteRenderer>().material = waterMat;
+                enemy.StrongAgainst = new Elements[] { Elements.Fire };
+                enemy.WeakAgainst = new Elements[] { Elements.Grass };
+                break;
+            case Elements.Grass:
+                enemy.GetComponent<SpriteRenderer>().material = grassMat;
+                enemy.StrongAgainst = new Elements[] { Elements.Water };
+                enemy.WeakAgainst = new Elements[] { Elements.Fire };
+                break;
         }
     }
 

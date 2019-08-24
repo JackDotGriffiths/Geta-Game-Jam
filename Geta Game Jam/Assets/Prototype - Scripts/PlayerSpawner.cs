@@ -119,11 +119,33 @@ public class PlayerSpawner : MonoBehaviour
         GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
         minion.GetComponent<Minion>().Element = m_currentElement;
 
+        SetStrengthsAndWeaknesses(minion.GetComponent<Minion>());
         SetMinionColour(minion);
 
         minion.GetComponent<Minion>().Health = m_minionHealth;
         minion.GetComponent<Minion>().Damage = m_minionDamage;
         minion.GetComponent<Minion>().AttackSpeed = m_minionAttackSpeed;
+    }
+
+    private void SetStrengthsAndWeaknesses(Fighter minion)
+    {
+        switch (minion.GetComponent<Minion>().Element)
+        {
+            case Elements.Fire:
+                minion.StrongAgainst = new Elements[] {Elements.Grass};
+                minion.WeakAgainst = new Elements[] { Elements.Water };
+                break;
+            case Elements.Water:
+                minion.GetComponent<SpriteRenderer>().material = waterMat;
+                minion.StrongAgainst = new Elements[] { Elements.Fire };
+                minion.WeakAgainst = new Elements[] { Elements.Grass };
+                break;
+            case Elements.Grass:
+                minion.GetComponent<SpriteRenderer>().material = grassMat;
+                minion.StrongAgainst = new Elements[] { Elements.Water };
+                minion.WeakAgainst = new Elements[] { Elements.Fire };
+                break;
+        }
     }
 
     private void SetMinionColour(GameObject minion)
