@@ -29,4 +29,14 @@ public class EnemyMover : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
         } 
     }
+
+    void Attacked(GameObject attacker)
+    {
+        isFighting = true;
+    }
+
+    void StopAttacked(GameObject attacker)
+    {
+        isFighting = false;
+    }
 }

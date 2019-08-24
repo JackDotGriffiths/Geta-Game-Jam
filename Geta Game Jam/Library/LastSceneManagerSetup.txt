@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/JackEnemyTesting.unity
+- path: Assets/Scenes/MinionandEnemyMovement.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

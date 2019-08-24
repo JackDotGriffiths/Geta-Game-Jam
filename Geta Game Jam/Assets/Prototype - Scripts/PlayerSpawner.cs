@@ -69,6 +69,7 @@ public class PlayerSpawner : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("spawned");
             GameObject cloneBullet = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
         }
     }
