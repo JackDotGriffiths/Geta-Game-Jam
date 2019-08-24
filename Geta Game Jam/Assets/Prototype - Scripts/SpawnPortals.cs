@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnPortals : MonoBehaviour
 {
     public GameObject portalPrefab;
+    public GameObject ChannelPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,13 @@ public class SpawnPortals : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void SpawnTheChannel(float _xCord, float _yCord, float zRot)
+    {
+        Quaternion rot = new Quaternion();
+        rot.eulerAngles = new Vector3(0, 0, zRot);
+        Instantiate(ChannelPrefab, new Vector2(_xCord / 2, _yCord / 2), rot);
     }
 
     void SpawnThePortals()
@@ -90,6 +98,8 @@ public class SpawnPortals : MonoBehaviour
             #endregion
 
             _spawnLocation = new Vector2(_xCord, _yCord);
+
+            SpawnTheChannel(_xCord, _yCord, -_angle);
 
             GameObject newPortal = Instantiate(portalPrefab, _spawnLocation, Quaternion.identity);
         }
