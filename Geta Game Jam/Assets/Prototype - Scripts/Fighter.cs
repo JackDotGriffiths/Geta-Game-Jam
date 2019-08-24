@@ -9,6 +9,7 @@ public class Fighter : MonoBehaviour
     private Elements m_element;
     private float m_attackSpeed;
     private bool isInFight;
+    private bool isAtStructure;
     private Fighter m_currentOpponent;
 
     public float Health { get => m_health; set => m_health = value; }
@@ -25,17 +26,27 @@ public class Fighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isInFight)
+        {
+            InvokeRepeating("AttackOpponent", 0, m_attackSpeed);
+        }
+
+        if (isAtStructure)
+        {
+            InvokeRepeating("AttackStructure", 0, m_attackSpeed);
+        }
     }
 
-    public void StartFight()
+    public void StartFight(Fighter _oppponent)
     {
         isInFight = true;
+        m_currentOpponent = _oppponent;
     }
 
     public void StopFight()
     {
         isInFight = false;
+        m_currentOpponent = null;
     }
 
     public void AttackStructure()
@@ -46,6 +57,7 @@ public class Fighter : MonoBehaviour
     public void AttackOpponent()
     {
         m_currentOpponent.TakeDamage(m_damage);
+        Debug.Log("Attack");
     }
 
     public void TakeDamage(float _damage)
@@ -60,6 +72,6 @@ public class Fighter : MonoBehaviour
 
     void Die()
     {
-
+        Destroy(gameObject);
     }
 }

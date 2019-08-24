@@ -29,14 +29,15 @@ public class EnemyMover : MonoBehaviour
         } 
     }
 
-    void Attacked(GameObject attacker)
+    void Attacked(Fighter attacker)
     {
         isFighting = true;
-        GetComponent<Minion>().StartFight();
+        GetComponent<Enemy>().StartFight(attacker);
     }
 
-    void StopAttacked(GameObject attacker)
+    void StopAttacked(Fighter attacker)
     {
         isFighting = false;
+        GetComponent<Enemy>().StopFight();
     }
 }
