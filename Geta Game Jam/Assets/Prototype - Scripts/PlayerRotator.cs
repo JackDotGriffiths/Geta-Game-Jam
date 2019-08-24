@@ -7,13 +7,15 @@ public class PlayerRotator : MonoBehaviour
     private Vector3 mousePosition;
 
     #region Angle parameters
-    [SerializeField]
     private int m_numberOfAngles;
-    [SerializeField]
     private float m_angleToUse;
-    [SerializeField]
     private float[] m_angles;
     #endregion
+
+    void Awake()
+    {
+        m_numberOfAngles = GameManager.Instance.NumberOfAngles;
+    }
 
     void Start()
     {
