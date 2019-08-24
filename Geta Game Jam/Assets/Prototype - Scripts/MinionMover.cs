@@ -47,6 +47,7 @@ public class MinionMover : MonoBehaviour
         {
             isFighting = true;
             collision.SendMessage("Attacked", this.gameObject);
+            GetComponent<Minion>().StartFight();
         }
     }
 

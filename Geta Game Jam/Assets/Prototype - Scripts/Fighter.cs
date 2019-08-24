@@ -7,11 +7,14 @@ public class Fighter : MonoBehaviour
     private float m_health;
     private float m_damage;
     private Elements m_element;
+    private float m_attackSpeed;
+    private bool isInFight;
     private Fighter m_currentOpponent;
 
     public float Health { get => m_health; set => m_health = value; }
     public float Damage { get => m_damage; set => m_damage = value; }
     public Elements Element { get => m_element; set => m_element = value; }
+    public float AttackSpeed { get => m_attackSpeed; set => m_attackSpeed = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,21 @@ public class Fighter : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartFight()
+    {
+        isInFight = true;
+    }
+
+    public void StopFight()
+    {
+        isInFight = false;
+    }
+
+    public void AttackStructure()
+    {
+
     }
 
     public void AttackOpponent()

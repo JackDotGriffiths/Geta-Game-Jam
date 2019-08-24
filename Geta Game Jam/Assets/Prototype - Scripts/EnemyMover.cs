@@ -25,7 +25,6 @@ public class EnemyMover : MonoBehaviour
     {
         if(!isFighting)
         {
-
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
         } 
     }
@@ -33,6 +32,7 @@ public class EnemyMover : MonoBehaviour
     void Attacked(GameObject attacker)
     {
         isFighting = true;
+        GetComponent<Minion>().StartFight();
     }
 
     void StopAttacked(GameObject attacker)
