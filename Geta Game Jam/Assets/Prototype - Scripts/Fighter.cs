@@ -7,6 +7,8 @@ public class Fighter : MonoBehaviour
     private float m_health;
     private float m_damage;
     private Elements m_element;
+    private Elements[] m_strongAgainst;
+    private Elements[] m_weakAgainst;
     private float m_attackSpeed;
     private bool isInFight;
     private bool isAtStructure;
@@ -21,6 +23,8 @@ public class Fighter : MonoBehaviour
     public bool IsAtStructure { get => isAtStructure; set => isAtStructure = value; }
     public Fighter CurrentOpponent { get => m_currentOpponent; set => m_currentOpponent = value; }
     public BuildingHealthControl CurrentStructure { get => m_currentStructure; set => m_currentStructure = value; }
+    public Elements[] StrongAgainst { get => m_strongAgainst; set => m_strongAgainst = value; }
+    public Elements[] WeakAgainst { get => m_weakAgainst; set => m_weakAgainst = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -69,20 +73,44 @@ public class Fighter : MonoBehaviour
     {
         if (CurrentOpponent != null)
         {
-            CurrentOpponent.TakeDamage(Damage);
+            CurrentOpponent.TakeDamage(Damage, Element);
             Debug.Log("Attck");
         }
     }
 
-    public void TakeDamage(float _damage)
+    public void TakeDamage(float _damage, Elements _elementType)
     {
         Debug.Log("Got attacked");
-        Health -= _damage;
+
+        Health -= _damage * ModifiedDamage(_elementType);
 
         if(Health <= 0)
         {
             Die();
         }
+    }
+
+    float ModifiedDamage(Elements _elementType)
+    {
+        float _mod = 1;
+
+        for(int i = 0; i < StrongAgainst.Length; i++)
+        {
+            if(_elementType == StrongAgainst[i])
+            {
+                _mod = 0.5f;
+            }
+        }
+
+        for (int i = 0; i < WeakAgainst.Length; i++)
+        {
+            if (_elementType == WeakAgainst[i])
+            {
+                _mod = 2f;
+            }
+        }
+
+        return _mod;
     }
 
     void Die()
