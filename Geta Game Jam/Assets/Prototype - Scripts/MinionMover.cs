@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MinionMover : MonoBehaviour
 {
-    private float MinionSpeed = 1f;
+    private float MinionSpeed = 0.5f;
     private Rigidbody2D rb;
 
     //private GameObject closestEnemy;
@@ -37,7 +37,14 @@ public class MinionMover : MonoBehaviour
     {
         if(!isFighting)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPortal.transform.position, MinionSpeed * Time.deltaTime);
+            try
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPortal.transform.position, MinionSpeed * Time.deltaTime);
+            }
+            catch
+            {
+                Destroy(gameObject);
+            }
         }      
     }
 

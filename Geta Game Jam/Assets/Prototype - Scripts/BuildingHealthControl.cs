@@ -28,5 +28,18 @@ public class BuildingHealthControl : MonoBehaviour
     {
         Health -= (int)DamageValue;
         UpdateHealthBar();
+        if(Health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        if(this.tag == "Portal")
+        {
+            SpawnManager.Instance.Spawners.Remove(this.gameObject);
+        }
+        Destroy(gameObject);
     }
 }
