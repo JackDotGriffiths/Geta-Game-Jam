@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Elements
 {
@@ -11,19 +12,42 @@ public class PlayerSpawner : MonoBehaviour
 {
     public GameObject minionSpawn;
     public GameObject minionPrefab;
+    private int m_elementIndex = 0;
 
+
+
+    [Header("Element Control")]
     [SerializeField]
     private Elements m_currentElement;
-
     [SerializeField]
     private Elements[] m_allElements;
 
-    private int m_elementIndex = 0;
+
+    [Header("Minion Spawning Control")]
+    [SerializeField]
+    private int m_maximumMinionCount = 20;
+    [SerializeField]
+    private float m_cooldownTimer = 1;
+    [SerializeField]
+    private Image cooldownImage;
+    [SerializeField]
+    private Text minionCounterText;
+
+
+    [Header("Minion Management")]
+    [SerializeField]
+    private float m_minionHealth;
+    [SerializeField]
+    private float m_minionAttackSpeed;
+    [SerializeField]
+    private float m_minionDamage;
 
     // Start is called before the first frame update
     void Start()
     {
         m_currentElement = m_allElements[m_elementIndex];
+        minionCounterText.text = "0/" + m_maximumMinionCount;
+
     }
 
     // Update is called once per frame
@@ -69,9 +93,13 @@ public class PlayerSpawner : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("spawned");
-            GameObject cloneBullet = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+            if(GameObject.FindGameObjectsWithTag("Minion").Length < m_maximumMinionCount && cooldownImage.fillAmount == 1)
+            {
+                SpawnMinion();
+            }
         }
+
+        cooldownImage.fillAmount += Time.deltaTime * m_cooldownTimer;
     }
 
     void NewCurrentElement()
@@ -79,6 +107,17 @@ public class PlayerSpawner : MonoBehaviour
         m_currentElement = m_allElements[m_elementIndex];
     }
 
+    void SpawnMinion()
+    {
+        cooldownImage.fillAmount = 0;
+        minionCounterText.text = (GameObject.FindGameObjectsWithTag("Minion").Length + 1) + "/" + m_maximumMinionCount;
+
+
+        GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+        minion.GetComponent<Minion>().Health = m_minionHealth;
+        minion.GetComponent<Minion>().Damage = m_minionDamage;
+        minion.GetComponent<Minion>().AttackSpeed = m_minionAttackSpeed;
+    }
     //void SetElementToFire()
     //{
     //    m_currentElement = Elements.Fire;
