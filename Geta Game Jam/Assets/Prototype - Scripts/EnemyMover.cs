@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
+    private GameObject spawner;
+
     private float enemySpeed = 0.5f;
     private Rigidbody2D rb;
 
@@ -11,6 +13,8 @@ public class EnemyMover : MonoBehaviour
     private GameObject player;
 
     private bool isFighting = false;
+
+    public GameObject Spawner { get => spawner; set => spawner = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,11 @@ public class EnemyMover : MonoBehaviour
 
     private void Update()
     {
+        if(spawner == null)
+        {
+            Destroy(gameObject);
+        }
+
         if(!isFighting)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);

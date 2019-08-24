@@ -74,9 +74,6 @@ public class SpawnManager : MonoBehaviour
         {
             nextSpawn = Time.time + interval;
 
-            
-
-
             Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             GameObject randomSpawnradius = new GameObject("TempSpawnPosition");
             randomSpawnradius.transform.SetParent(chosenSpawner.transform);
@@ -101,6 +98,8 @@ public class SpawnManager : MonoBehaviour
             enemyClone.GetComponent<Enemy>().Health = m_enemyHealth;
             enemyClone.GetComponent<Enemy>().Damage = m_enemyDamage;
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
+
+            enemyClone.GetComponent<EnemyMover>().Spawner = chosenSpawner.gameObject;
 
             Destroy(randomSpawnradius);
 
