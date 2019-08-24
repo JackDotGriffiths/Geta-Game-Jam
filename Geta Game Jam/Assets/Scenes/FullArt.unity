@@ -544,6 +544,9 @@ MonoBehaviour:
   m_enemyHealth: 10
   m_enemyAttackSpeed: 1
   m_enemyDamage: 3
+  waterSigil: {fileID: 21300000, guid: 2df98f76c28db80468283a3bb7d1df43, type: 3}
+  grassSigil: {fileID: 21300000, guid: e38deb8cbbf492547a4b0cd912727cf7, type: 3}
+  fireSigil: {fileID: 21300000, guid: 935eeb09910106848be552c57b6f7738, type: 3}
   waterMat: {fileID: 2100000, guid: a8a733b94fcd0eb4e89cda38f48b9adb, type: 2}
   fireMat: {fileID: 2100000, guid: 3b6d647274c670e47b0af4509cc37168, type: 2}
   grassMat: {fileID: 2100000, guid: 847de4eb832ae284bbc8307903c79ee6, type: 2}
@@ -786,7 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullHealthBar: {fileID: 1516967468}
-  Health: 100
+  Health: 10000
 --- !u!58 &885676411
 CircleCollider2D:
   m_ObjectHideFlags: 0

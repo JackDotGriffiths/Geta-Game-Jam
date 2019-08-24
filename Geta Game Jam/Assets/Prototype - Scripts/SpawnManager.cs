@@ -31,6 +31,11 @@ public class SpawnManager : MonoBehaviour
 
     private Transform chosenSpawner;
 
+    private bool nextElementChosen = false;
+    private Elements nextElement;
+    [SerializeField]
+    private Sprite waterSigil, grassSigil, fireSigil;
+
     [SerializeField]
     private Material waterMat, fireMat, grassMat;
 
@@ -58,6 +63,8 @@ public class SpawnManager : MonoBehaviour
         {
             spawners.Add(spawner);
         }
+        chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
+        nextSpawn = Time.time + interval;
     }
 
     // Update is called once per frame
@@ -67,7 +74,7 @@ public class SpawnManager : MonoBehaviour
         {
             nextSpawn = Time.time + interval;
 
-            chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
+            
 
 
             Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -83,9 +90,9 @@ public class SpawnManager : MonoBehaviour
 
             GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
 
-            Elements randomElement = GameManager.Instance.AllElements[Random.Range(0, 3)];
+            
 
-            enemyClone.GetComponent<Enemy>().Element = randomElement;
+            enemyClone.GetComponent<Enemy>().Element = nextElement;
 
             SetStrengthsAndWeaknesses(enemyClone.GetComponent<Enemy>());
 
@@ -96,6 +103,29 @@ public class SpawnManager : MonoBehaviour
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
 
             Destroy(randomSpawnradius);
+
+            chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
+
+            nextElementChosen = false;
+        }
+        else if(!nextElementChosen)
+        {
+            nextElement = GameManager.Instance.AllElements[Random.Range(0, 3)];
+
+            switch(nextElement)
+            {
+                case Elements.Fire:
+                    chosenSpawner.GetComponent<SpriteRenderer>().sprite = fireSigil;
+                    break;
+                case Elements.Grass:
+                    chosenSpawner.GetComponent<SpriteRenderer>().sprite = grassSigil;
+                    break;
+                case Elements.Water:
+                    chosenSpawner.GetComponent<SpriteRenderer>().sprite = waterSigil;
+                    break;
+            }
+
+            nextElementChosen = true;
         }
     }
 
