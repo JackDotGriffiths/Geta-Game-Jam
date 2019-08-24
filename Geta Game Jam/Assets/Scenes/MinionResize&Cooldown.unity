@@ -423,6 +423,7 @@ MonoBehaviour:
   m_numberOfAngles: 3
   m_radius: 4.5
   m_angles: []
+  m_allElements: 000000000100000002000000
 --- !u!114 &447779068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +564,9 @@ MonoBehaviour:
   m_enemyHealth: 10
   m_enemyAttackSpeed: 1
   m_enemyDamage: 3
+  waterMat: {fileID: 2100000, guid: a8a733b94fcd0eb4e89cda38f48b9adb, type: 2}
+  fireMat: {fileID: 2100000, guid: 3b6d647274c670e47b0af4509cc37168, type: 2}
+  grassMat: {fileID: 2100000, guid: 847de4eb832ae284bbc8307903c79ee6, type: 2}
 --- !u!4 &719853352
 Transform:
   m_ObjectHideFlags: 0

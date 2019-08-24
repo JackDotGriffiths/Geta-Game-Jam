@@ -28,6 +28,9 @@ public class SpawnManager : MonoBehaviour
 
     private Transform chosenSpawner;
 
+    [SerializeField]
+    private Material waterMat, fireMat, grassMat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,11 +59,34 @@ public class SpawnManager : MonoBehaviour
             Vector3 generatedSpawnPosition = chosenSpawner.position + offset;
 
             GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
+
+            Elements randomElement = GameManager.Instance.AllElements[Random.Range(0, 3)];
+
+            enemyClone.GetComponent<Enemy>().Element = randomElement;
+
+            SetEnemyColour(enemyClone);
+
             enemyClone.GetComponent<Enemy>().Health = m_enemyHealth;
             enemyClone.GetComponent<Enemy>().Damage = m_enemyDamage;
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
 
             Destroy(randomSpawnradius);
+        }
+    }
+
+    private void SetEnemyColour(GameObject enemy)
+    {
+        switch (enemy.GetComponent<Enemy>().Element)
+        {
+            case Elements.Fire:
+                enemy.GetComponent<SpriteRenderer>().material = fireMat;
+                break;
+            case Elements.Water:
+                enemy.GetComponent<SpriteRenderer>().material = waterMat;
+                break;
+            case Elements.Grass:
+                enemy.GetComponent<SpriteRenderer>().material = grassMat;
+                break;
         }
     }
 }

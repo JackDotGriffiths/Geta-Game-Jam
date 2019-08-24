@@ -323,6 +323,7 @@ MonoBehaviour:
   m_numberOfAngles: 6
   m_radius: 4.5
   m_angles: []
+  m_allElements: 000000000100000002000000
 --- !u!114 &447779068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +524,9 @@ MonoBehaviour:
     type: 3}
   m_currentElement: 0
   m_allElements: 000000000100000002000000
+  waterMat: {fileID: 0}
+  fireMat: {fileID: 0}
+  grassMat: {fileID: 0}
   m_maximumMinionCount: 20
   m_cooldownTimer: 1
   cooldownImage: {fileID: 1039403461}
