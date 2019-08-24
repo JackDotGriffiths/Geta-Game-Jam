@@ -10,6 +10,8 @@ public class MinionMover : MonoBehaviour
     //private GameObject closestEnemy;
     private GameObject targetPortal;
 
+    private bool isFighting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +29,34 @@ public class MinionMover : MonoBehaviour
         }
         else
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPortal.transform.position, MinionSpeed * Time.deltaTime);
+        if(!isFighting)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPortal.transform.position, MinionSpeed * Time.deltaTime);
+        }      
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Portal")
+        {
+            isFighting = true;
+            //collision.SendMessage("Attacked", this.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Portal")
+        {
+            isFighting = false;
+            //collision.SendMessage("StopAttacked", this.gameObject);
+        }
     }
 
     //private void FindClosestEnemy()
