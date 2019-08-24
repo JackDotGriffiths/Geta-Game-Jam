@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/testingScenes/MinionResize&Cooldown.unity
+- path: Assets/Scenes/testingScenes/HealthBarFixed.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
