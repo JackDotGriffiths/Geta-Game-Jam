@@ -25,18 +25,19 @@ public class EnemyMover : MonoBehaviour
     {
         if(!isFighting)
         {
-
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
         } 
     }
 
-    void Attacked(GameObject attacker)
+    void Attacked(Fighter attacker)
     {
         isFighting = true;
+        GetComponent<Enemy>().StartFight(attacker);
     }
 
-    void StopAttacked(GameObject attacker)
+    void StopAttacked(Fighter attacker)
     {
         isFighting = false;
+        GetComponent<Enemy>().StopFight();
     }
 }

@@ -35,8 +35,6 @@ public class SpawnPortals : MonoBehaviour
                 float _workingAngle;
                 _workingAngle = _angle - 270f;
 
-                Debug.Log(_workingAngle);
-
                 _xCord = Mathf.Cos(_workingAngle * Mathf.Deg2Rad) * _radius;
                 _yCord = Mathf.Sin(_workingAngle * Mathf.Deg2Rad) * _radius;
                 _xCord = -_xCord;
@@ -45,8 +43,6 @@ public class SpawnPortals : MonoBehaviour
             {
                 float _workingAngle;
                 _workingAngle = 90f - (_angle - 180f);
-
-                Debug.Log(_workingAngle);
 
                 _xCord = Mathf.Cos(_workingAngle * Mathf.Deg2Rad) * _radius;
                 _yCord = Mathf.Sin(_workingAngle * Mathf.Deg2Rad) * _radius;
@@ -58,8 +54,6 @@ public class SpawnPortals : MonoBehaviour
                 float _workingAngle;
                 _workingAngle = _angle - 90f;
 
-                Debug.Log(_workingAngle);
-
                 _xCord = Mathf.Cos(_workingAngle * Mathf.Deg2Rad) * _radius;
                 _yCord = Mathf.Sin(_workingAngle * Mathf.Deg2Rad) * _radius;
                 _yCord = -_yCord;
@@ -68,6 +62,7 @@ public class SpawnPortals : MonoBehaviour
             {
                 float _workingAngle;
                 _workingAngle = 90f - _angle;
+
                 _xCord = Mathf.Cos(_workingAngle * Mathf.Deg2Rad) * _radius;
                 _yCord = Mathf.Sin(_workingAngle * Mathf.Deg2Rad) * _radius;
             }
@@ -95,10 +90,6 @@ public class SpawnPortals : MonoBehaviour
             #endregion
 
             _spawnLocation = new Vector2(_xCord, _yCord);
-
-            Debug.Log(_angle);
-            Debug.Log(_xCord);
-            Debug.Log(_yCord);
 
             GameObject newPortal = Instantiate(portalPrefab, _spawnLocation, Quaternion.identity);
         }
