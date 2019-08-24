@@ -8,7 +8,16 @@ public class SpawnManager : MonoBehaviour
     private GameObject enemyPrefab;
 
     [SerializeField]
+    [Tooltip("Interval in which enemies will spawn.")]
     private float interval;
+
+    [SerializeField]
+    [Tooltip("Spawner Radius determines the radius around a portal in which enemies will randomly spawn.")]
+    private float spawnerRadius = 1f;
+
+    [SerializeField]
+    [Tooltip("Offset Radius will prevent Enemy getting stuck behind portal. Should always be higher than Spawner Radius")]
+    private float offsetRadius = 1.2f;
 
     private float nextSpawn;
 
@@ -29,9 +38,27 @@ public class SpawnManager : MonoBehaviour
         {
             nextSpawn = Time.time + interval;
 
-            chosenSpawner = spawners[Random.Range(0, spawners.Length - 1)].transform;
+            chosenSpawner = spawners[Random.Range(0, spawners.Length)].transform;
 
-            GameObject enemyClone = Instantiate(enemyPrefab, chosenSpawner.position, chosenSpawner.rotation);
+
+            Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            GameObject randomSpawnradius = new GameObject("TempSpawnPosition");
+            randomSpawnradius.transform.SetParent(chosenSpawner.transform);
+            randomSpawnradius.transform.position = chosenSpawner.position;
+
+            //Offset to prevent stickin'
+            randomSpawnradius.transform.position = Vector3.MoveTowards(randomSpawnradius.transform.position, Player.position, offsetRadius);
+             
+            Vector3 offset = Random.insideUnitCircle * spawnerRadius;
+            Vector3 generatedSpawnPosition = chosenSpawner.position + offset;
+
+            GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
+
+            Destroy(randomSpawnradius);
+
+
+
+
         }
     }
 }

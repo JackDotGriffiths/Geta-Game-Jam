@@ -25,18 +25,8 @@ public class EnemyMover : MonoBehaviour
     {
         if(!isFighting)
         {
+
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
         } 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        isFighting = true;
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isFighting = false;
     }
 }
