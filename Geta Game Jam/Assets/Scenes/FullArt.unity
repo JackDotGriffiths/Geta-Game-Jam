@@ -680,6 +680,10 @@ MonoBehaviour:
   minionSpawn: {fileID: 275291344}
   minionPrefab: {fileID: 2509534044061061290, guid: 8f47163c07a2b634e93738751d9ac5ab,
     type: 3}
+  fire: {r: 0.94509804, g: 0.5176471, b: 0.08627451, a: 1}
+  water: {r: 0.33333334, g: 0.6901961, b: 0.7254902, a: 1}
+  grass: {r: 0.3254902, g: 0.67058825, b: 0.36862746, a: 1}
+  playerRenderer: {fileID: 885676408}
   m_currentElement: 0
   m_allElements: 000000000100000002000000
   waterMat: {fileID: 2100000, guid: ba7df42624c424a4da83a0dac45c2a6c, type: 2}
