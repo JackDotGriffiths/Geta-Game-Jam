@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/MinionandEnemyMovement.unity
+- path: Assets/Scenes/testingScenes/GriffBuildingHealth.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
