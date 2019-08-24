@@ -9,9 +9,7 @@ public class PlayerRotator : MonoBehaviour
     #region Angle parameters
     [SerializeField]
     private int m_numberOfAngles;
-    [SerializeField]
     private float m_angleToUse;
-    [SerializeField]
     private float[] m_angles;
     #endregion
 
