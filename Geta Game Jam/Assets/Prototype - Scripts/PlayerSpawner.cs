@@ -14,6 +14,15 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject minionPrefab;
     private int m_elementIndex = 0;
 
+    [Header("Player Colour Options")]
+    [SerializeField]
+    private Color fire;
+    [SerializeField]
+    private Color water;
+    [SerializeField]
+    private Color grass;
+    [SerializeField]
+    private SpriteRenderer playerRenderer;
 
 
     [Header("Element Control")]
@@ -49,6 +58,7 @@ public class PlayerSpawner : MonoBehaviour
     void Start()
     {
         m_currentElement = m_allElements[m_elementIndex];
+        NewCurrentElement();
         minionCounterText.text = "0/" + m_maximumMinionCount;
 
     }
@@ -108,6 +118,19 @@ public class PlayerSpawner : MonoBehaviour
     void NewCurrentElement()
     {
         m_currentElement = m_allElements[m_elementIndex];
+        
+        switch(m_currentElement)
+        {
+            case Elements.Fire:
+                playerRenderer.color = fire;
+                break;
+            case Elements.Water:
+                playerRenderer.color = water;
+                break;
+            case Elements.Grass:
+                playerRenderer.color = grass;
+                break;
+        }
     }
 
     void SpawnMinion()
