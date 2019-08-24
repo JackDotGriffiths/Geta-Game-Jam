@@ -16,6 +16,8 @@ public class Fighter : MonoBehaviour
     public float Damage { get => m_damage; set => m_damage = value; }
     public Elements Element { get => m_element; set => m_element = value; }
     public float AttackSpeed { get => m_attackSpeed; set => m_attackSpeed = value; }
+    public bool IsInFight { get => isInFight; set => isInFight = value; }
+    public bool IsAtStructure { get => isAtStructure; set => isAtStructure = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +28,7 @@ public class Fighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInFight)
-        {
-            InvokeRepeating("AttackOpponent", 0, m_attackSpeed);
-        }
-
-        if (isAtStructure)
-        {
-            InvokeRepeating("AttackStructure", 0, m_attackSpeed);
-        }
+        
     }
 
     public void StartFight(Fighter _oppponent)
@@ -57,7 +51,7 @@ public class Fighter : MonoBehaviour
     public void AttackOpponent()
     {
         m_currentOpponent.TakeDamage(m_damage);
-        Debug.Log("Attack");
+        Debug.Log("Attck");
     }
 
     public void TakeDamage(float _damage)
