@@ -22,6 +22,9 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField]
     private Elements[] m_allElements;
 
+    [SerializeField]
+    private Material waterMat, fireMat, grassMat;
+
 
     [Header("Minion Spawning Control")]
     [SerializeField]
@@ -114,10 +117,31 @@ public class PlayerSpawner : MonoBehaviour
 
 
         GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+        minion.GetComponent<Minion>().Element = m_currentElement;
+
+        SetMinionColour(minion);
+
         minion.GetComponent<Minion>().Health = m_minionHealth;
         minion.GetComponent<Minion>().Damage = m_minionDamage;
         minion.GetComponent<Minion>().AttackSpeed = m_minionAttackSpeed;
     }
+
+    private void SetMinionColour(GameObject minion)
+    {
+        switch(minion.GetComponent<Minion>().Element)
+        {
+            case Elements.Fire:
+                minion.GetComponent<SpriteRenderer>().material = fireMat;
+                break;
+            case Elements.Water:
+                minion.GetComponent<SpriteRenderer>().material = waterMat;
+                break;
+            case Elements.Grass:
+                minion.GetComponent<SpriteRenderer>().material = grassMat;
+                break;
+        }
+    }
+
     //void SetElementToFire()
     //{
     //    m_currentElement = Elements.Fire;

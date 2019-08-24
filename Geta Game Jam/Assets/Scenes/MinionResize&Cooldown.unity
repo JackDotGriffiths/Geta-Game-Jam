@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9303fb0555c9a548b61f0b5d3377700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numberOfAngles: 6
+  m_numberOfAngles: 3
   m_radius: 4.5
   m_angles: []
 --- !u!114 &447779068
@@ -698,6 +698,9 @@ MonoBehaviour:
     type: 3}
   m_currentElement: 0
   m_allElements: 000000000100000002000000
+  waterMat: {fileID: 2100000, guid: ba7df42624c424a4da83a0dac45c2a6c, type: 2}
+  fireMat: {fileID: 2100000, guid: d306289682daf674ca85671a050ac04b, type: 2}
+  grassMat: {fileID: 2100000, guid: e659caf87effa144bb7c54affb09b3c1, type: 2}
   m_maximumMinionCount: 20
   m_cooldownTimer: 1
   cooldownImage: {fileID: 1039403461}
