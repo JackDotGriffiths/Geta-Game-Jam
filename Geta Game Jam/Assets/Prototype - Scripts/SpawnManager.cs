@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
+    private static SpawnManager m_instance;
+
     [SerializeField]
     private GameObject enemyPrefab;
 
@@ -24,17 +27,37 @@ public class SpawnManager : MonoBehaviour
 
     private float nextSpawn;
 
-    private GameObject[] spawners;
+    private List<GameObject> spawners = new List<GameObject>();
 
     private Transform chosenSpawner;
 
     [SerializeField]
     private Material waterMat, fireMat, grassMat;
 
+    public static SpawnManager Instance { get => m_instance; set => m_instance = value; }
+    public List<GameObject> Spawners { get => spawners; set => spawners = value; }
+
+    private void Awake()
+    {
+        if(m_instance == null)
+        {
+            m_instance = this;
+        }
+        else
+        {
+            Destroy(m_instance.gameObject);
+            m_instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        spawners = GameObject.FindGameObjectsWithTag("Portal");
+        GameObject[] _spawners = GameObject.FindGameObjectsWithTag("Portal");
+        foreach(GameObject spawner in _spawners)
+        {
+            spawners.Add(spawner);
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +67,7 @@ public class SpawnManager : MonoBehaviour
         {
             nextSpawn = Time.time + interval;
 
-            chosenSpawner = spawners[Random.Range(0, spawners.Length)].transform;
+            chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
 
 
             Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();

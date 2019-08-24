@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    private float enemySpeed = 1f;
+    private float enemySpeed = 0.5f;
     private Rigidbody2D rb;
 
     private GameObject closestMinion;
