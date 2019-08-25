@@ -13,6 +13,13 @@ public class Enemy : Fighter
     // Update is called once per frame
     void Update()
     {
-
+        if (CurrentOpponent != null && CurrentOpponent.isActiveAndEnabled)
+        {
+            transform.up = CurrentOpponent.transform.position - transform.position;
+        }
+        else if(CurrentStructure != null && CurrentStructure.isActiveAndEnabled)
+        {
+            transform.up = CurrentStructure.transform.position - transform.position;
+        }
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour
 {
+    private GameObject m_particleEffect;
+    private GameObject m_currParticleEffect;
+
     private float m_health;
     private float m_damage;
     private Elements m_element;
@@ -27,6 +30,7 @@ public class Fighter : MonoBehaviour
     public Elements[] StrongAgainst { get => m_strongAgainst; set => m_strongAgainst = value; }
     public Elements[] WeakAgainst { get => m_weakAgainst; set => m_weakAgainst = value; }
     public bool IsAlive { get => m_isAlive; set => m_isAlive = value; }
+    public GameObject ParticleEffect { get => m_particleEffect; set => m_particleEffect = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +41,12 @@ public class Fighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("Updating");
+        if (CurrentOpponent != null && CurrentOpponent.isActiveAndEnabled)
+        {
+            Debug.Log("Looking");
+            gameObject.transform.LookAt(CurrentOpponent.gameObject.transform);
+        }
     }
 
     private void OnEnable()
@@ -46,6 +55,17 @@ public class Fighter : MonoBehaviour
         CurrentOpponent = null;
         CurrentStructure = null;
         IsAtStructure = false;
+    }
+
+    public void ParticlesOn()
+    {
+        m_currParticleEffect = Instantiate(m_particleEffect, this.gameObject.transform);
+        Invoke("ParticlesOff", 0.5f);
+    }
+
+    public void ParticlesOff()
+    {
+        Destroy(m_currParticleEffect);
     }
 
     public void StartFight(Fighter _oppponent)
@@ -75,6 +95,7 @@ public class Fighter : MonoBehaviour
 
     public void StopFight()
     {
+        ParticlesOff();
         if(gameObject.GetComponent<EnemyMover>() != null)
         {
             gameObject.GetComponent<EnemyMover>().StopAttacked();
@@ -91,10 +112,12 @@ public class Fighter : MonoBehaviour
     public void AttackStructure()
     {
         CurrentStructure.Attack(Damage);
+        ParticlesOn();
     }
 
     public void AttackOpponent()
     {
+        ParticlesOn();
         if (CurrentOpponent.isActiveAndEnabled)
         {
             if (CurrentOpponent.IsAlive)

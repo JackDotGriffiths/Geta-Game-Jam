@@ -181,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &109740543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1106,6 +1106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46ed224a264a646b6b71fd17187ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particals:
+  - {fileID: 3442992480059125312, guid: ccc6da6cf197a69468eaae5e9699db16, type: 3}
+  - {fileID: 4053442484313298838, guid: 92563ecc0293a9c4d876343982b5ca41, type: 3}
+  - {fileID: 1555632260194974422, guid: 013283b12028381438eca88bea8f7547, type: 3}
   enemyPrefab: {fileID: 1072539194187285226, guid: 65c8c7356581c0c4faa784be716c9d9b,
     type: 3}
   interval: 8
@@ -1413,6 +1417,10 @@ MonoBehaviour:
   minionSpawn: {fileID: 275291344}
   minionPrefab: {fileID: 2509534044061061290, guid: 8f47163c07a2b634e93738751d9ac5ab,
     type: 3}
+  particals:
+  - {fileID: 3442992480059125312, guid: ccc6da6cf197a69468eaae5e9699db16, type: 3}
+  - {fileID: 4053442484313298838, guid: 92563ecc0293a9c4d876343982b5ca41, type: 3}
+  - {fileID: 1555632260194974422, guid: 013283b12028381438eca88bea8f7547, type: 3}
   fire: {r: 0.94509804, g: 0.5176471, b: 0.08627451, a: 1}
   water: {r: 0.33333334, g: 0.6901961, b: 0.7254902, a: 1}
   grass: {r: 0.3254902, g: 0.67058825, b: 0.36862746, a: 1}
@@ -1498,7 +1506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885676405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.024, y: -0.029, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 275291345}

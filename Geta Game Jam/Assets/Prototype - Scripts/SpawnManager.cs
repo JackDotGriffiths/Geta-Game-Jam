@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
 
     private static SpawnManager m_instance;
 
+    public GameObject[] particles;
+
     [SerializeField]
     private GameObject enemyPrefab;
 
@@ -98,6 +100,8 @@ public class SpawnManager : MonoBehaviour
 
             SetEnemyColour(enemyClone);
 
+            SetParticle(enemyClone.GetComponent<Enemy>());
+
             enemyClone.GetComponent<Enemy>().Health = m_enemyHealth;
             enemyClone.GetComponent<Enemy>().Damage = m_enemyDamage;
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
@@ -131,6 +135,22 @@ public class SpawnManager : MonoBehaviour
             }
 
             nextElementChosen = true;
+        }
+    }
+
+    private void SetParticle(Fighter enemy)
+    {
+        switch (enemy.GetComponent<Enemy>().Element)
+        {
+            case Elements.Fire:
+                enemy.ParticleEffect = particles[0];
+                break;
+            case Elements.Water:
+                enemy.ParticleEffect = particles[1];
+                break;
+            case Elements.Grass:
+                enemy.ParticleEffect = particles[2];
+                break;
         }
     }
 
