@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/testingScenes/BlastWave.unity
+=======
+- path: Assets/Scenes/testingScenes/Minion&EnemyDeath.unity
+>>>>>>> StagingBranch
   isLoaded: 1
   isActive: 1
   isSubScene: 0
