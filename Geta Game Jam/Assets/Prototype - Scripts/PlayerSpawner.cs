@@ -12,6 +12,9 @@ public class PlayerSpawner : MonoBehaviour
 {
     public GameObject minionSpawn;
     public GameObject minionPrefab;
+
+    public GameObject[] particles;
+
     private int m_elementIndex = 0;
 
     [Header("Player Colour Options")]
@@ -164,6 +167,7 @@ public class PlayerSpawner : MonoBehaviour
 
         minion.GetComponent<Minion>().Element = m_currentElement;
 
+        SetParticle(minion.GetComponent<Minion>());
         SetStrengthsAndWeaknesses(minion.GetComponent<Minion>());
         SetMinionColour(minion);
 
@@ -190,6 +194,22 @@ public class PlayerSpawner : MonoBehaviour
                 minion.GetComponent<SpriteRenderer>().material = grassMat;
                 minion.StrongAgainst = new Elements[] { Elements.Water };
                 minion.WeakAgainst = new Elements[] { Elements.Fire };
+                break;
+        }
+    }
+
+    private void SetParticle(Fighter minion)
+    {
+        switch (minion.GetComponent<Minion>().Element)
+        {
+            case Elements.Fire:
+                minion.ParticleEffect = particles[0];
+                break;
+            case Elements.Water:
+                minion.ParticleEffect = particles[1];
+                break;
+            case Elements.Grass:
+                minion.ParticleEffect = particles[2];
                 break;
         }
     }
