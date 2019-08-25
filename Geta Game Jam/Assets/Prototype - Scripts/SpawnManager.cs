@@ -66,7 +66,7 @@ public class SpawnManager : MonoBehaviour
         {
             spawners.Add(spawner);
         }
-        currInterval = interval / (float)spawners.Count;
+        currInterval = interval / ((float)spawners.Count * (float)spawners.Count);
         chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
         nextSpawn = Time.time + currInterval;
     }
@@ -109,13 +109,15 @@ public class SpawnManager : MonoBehaviour
 
             enemyClone.GetComponent<EnemyMover>().OnObjectSpawn();
 
-           enemyClone.GetComponent<EnemyMover>().Spawner = chosenSpawner.gameObject;
+            enemyClone.GetComponent<EnemyMover>().Spawner = chosenSpawner.gameObject;
 
             Destroy(randomSpawnradius);
 
             chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
 
             nextElementChosen = false;
+
+            //UpdateInterval();
         }
         else if(!nextElementChosen)
         {
