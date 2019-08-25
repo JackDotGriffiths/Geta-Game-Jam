@@ -14,6 +14,7 @@ public class Fighter : MonoBehaviour
     private bool isAtStructure;
     private Fighter m_currentOpponent;
     private BuildingHealthControl m_currentStructure;
+    private bool m_isAlive;
 
     public float Health { get => m_health; set => m_health = value; }
     public float Damage { get => m_damage; set => m_damage = value; }
@@ -25,6 +26,7 @@ public class Fighter : MonoBehaviour
     public BuildingHealthControl CurrentStructure { get => m_currentStructure; set => m_currentStructure = value; }
     public Elements[] StrongAgainst { get => m_strongAgainst; set => m_strongAgainst = value; }
     public Elements[] WeakAgainst { get => m_weakAgainst; set => m_weakAgainst = value; }
+    public bool IsAlive { get => m_isAlive; set => m_isAlive = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +69,7 @@ public class Fighter : MonoBehaviour
     {
         IsInFight = false;
         CurrentOpponent = null;
+        CancelInvoke();
     }
 
     public void AttackStructure()
@@ -78,8 +81,15 @@ public class Fighter : MonoBehaviour
     {
         if (CurrentOpponent != null)
         {
-            CurrentOpponent.TakeDamage(Damage, Element);
-            Debug.Log("Attck");
+            if (CurrentOpponent.IsAlive)
+            {
+                CurrentOpponent.TakeDamage(Damage, Element);
+                Debug.Log("Attck");
+            }
+            else
+            {
+                StopFight();
+            }
         }
     }
 
@@ -132,6 +142,9 @@ public class Fighter : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        IsAlive = false;
+        CurrentOpponent.SendMessage("StopAttacked", GetComponent<Minion>());
+        gameObject.SetActive(false);        
+        StopFight();
     }
 }

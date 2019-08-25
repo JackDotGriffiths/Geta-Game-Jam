@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMover : MonoBehaviour
+public class EnemyMover : MonoBehaviour, IPooledObject
 {
     private GameObject spawner;
 
@@ -17,7 +17,7 @@ public class EnemyMover : MonoBehaviour
     public GameObject Spawner { get => spawner; set => spawner = value; }
 
     // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody2D>();

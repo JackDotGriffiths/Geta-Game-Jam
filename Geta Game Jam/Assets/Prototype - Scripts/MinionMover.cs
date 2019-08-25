@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinionMover : MonoBehaviour
+public class MinionMover : MonoBehaviour , IPooledObject
 {
     private float MinionSpeed = 0.5f;
     private Rigidbody2D rb;
@@ -13,7 +13,7 @@ public class MinionMover : MonoBehaviour
     private bool isFighting = false;
 
     // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         MinionSpeed = Random.Range(0.9f, 2f) * MinionSpeed;
@@ -70,6 +70,12 @@ public class MinionMover : MonoBehaviour
             isFighting = false;
             GetComponent<Minion>().StopFight();
         }
+    }
+
+    void StopAttacked(Fighter attacker)
+    {
+        isFighting = false;
+        GetComponent<Minion>().StopFight();
     }
 
     //private void FindClosestEnemy()

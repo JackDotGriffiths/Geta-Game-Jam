@@ -139,7 +139,11 @@ public class PlayerSpawner : MonoBehaviour
         minionCounterText.text = (GameObject.FindGameObjectsWithTag("Minion").Length + 1) + "/" + m_maximumMinionCount;
 
 
-        GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+        //GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
+        GameObject minion = ObjectPooler.Instance.SpawnFromPool("Minion", minionSpawn.transform.position, minionSpawn.transform.rotation);
+
+
+
         minion.GetComponent<Minion>().Element = m_currentElement;
 
         SetStrengthsAndWeaknesses(minion.GetComponent<Minion>());
@@ -148,6 +152,7 @@ public class PlayerSpawner : MonoBehaviour
         minion.GetComponent<Minion>().Health = m_minionHealth;
         minion.GetComponent<Minion>().Damage = m_minionDamage;
         minion.GetComponent<Minion>().AttackSpeed = m_minionAttackSpeed;
+        minion.GetComponent<Minion>().IsAlive = true;
     }
 
     private void SetStrengthsAndWeaknesses(Fighter minion)

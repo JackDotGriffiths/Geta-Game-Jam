@@ -82,12 +82,13 @@ public class SpawnManager : MonoBehaviour
             //Offset to prevent stickin'
             randomSpawnradius.transform.position = Vector3.MoveTowards(randomSpawnradius.transform.position, Player.position, offsetRadius);
              
-            Vector3 offset = Random.insideUnitCircle * spawnerRadius;
-            Vector3 generatedSpawnPosition = chosenSpawner.position + offset;
+            Vector3 RandomOffset = Random.insideUnitCircle * spawnerRadius;
+            Vector3 generatedSpawnPosition = randomSpawnradius.transform.position + RandomOffset;
 
-            GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
 
-            
+            //GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
+
+            GameObject enemyClone = ObjectPooler.Instance.SpawnFromPool("Enemy", generatedSpawnPosition, chosenSpawner.rotation);
 
             enemyClone.GetComponent<Enemy>().Element = nextElement;
 
@@ -98,8 +99,9 @@ public class SpawnManager : MonoBehaviour
             enemyClone.GetComponent<Enemy>().Health = m_enemyHealth;
             enemyClone.GetComponent<Enemy>().Damage = m_enemyDamage;
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
+            enemyClone.GetComponent<Enemy>().IsAlive = true;
 
-            enemyClone.GetComponent<EnemyMover>().Spawner = chosenSpawner.gameObject;
+           enemyClone.GetComponent<EnemyMover>().Spawner = chosenSpawner.gameObject;
 
             Destroy(randomSpawnradius);
 
