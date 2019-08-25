@@ -40,6 +40,14 @@ public class Fighter : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        IsInFight = false;
+        CurrentOpponent = null;
+        CurrentStructure = null;
+        IsAtStructure = false;
+    }
+
     public void StartFight(Fighter _oppponent)
     {
         if (!IsInFight)

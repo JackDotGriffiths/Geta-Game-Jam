@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Channel
+    uniqueID: 2854138781
+    locked: 0
+  - name: AboveChannel
+    uniqueID: 3497115927
+    locked: 0
   - name: UserInterface
     uniqueID: 2161172905
     locked: 0

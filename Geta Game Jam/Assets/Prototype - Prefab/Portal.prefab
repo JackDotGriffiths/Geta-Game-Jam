@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHealthBar: {fileID: 5321684735539162306}
   Health: 100
+  m_HealthBar: {fileID: 0}
 --- !u!58 &-3100002585097707596
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -99,8 +100,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -797851369
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 530a8081e523f0e438bb108ead7ac3bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -321,7 +322,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -797851369
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &459511875299463530
