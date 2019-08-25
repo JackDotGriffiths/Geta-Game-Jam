@@ -103,6 +103,8 @@ public class SpawnManager : MonoBehaviour
             enemyClone.GetComponent<Enemy>().AttackSpeed = m_enemyAttackSpeed;
             enemyClone.GetComponent<Enemy>().IsAlive = true;
 
+            enemyClone.GetComponent<EnemyMover>().OnObjectSpawn();
+
            enemyClone.GetComponent<EnemyMover>().Spawner = chosenSpawner.gameObject;
 
             Destroy(randomSpawnradius);

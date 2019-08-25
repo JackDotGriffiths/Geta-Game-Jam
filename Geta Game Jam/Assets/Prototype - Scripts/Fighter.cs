@@ -75,6 +75,14 @@ public class Fighter : MonoBehaviour
 
     public void StopFight()
     {
+        if(gameObject.GetComponent<EnemyMover>() != null)
+        {
+            gameObject.GetComponent<EnemyMover>().StopAttacked();
+        }
+        else
+        {
+            gameObject.GetComponent<MinionMover>().StopAttacked();
+        }
         IsInFight = false;
         CurrentOpponent = null;
         CancelInvoke();
@@ -87,7 +95,7 @@ public class Fighter : MonoBehaviour
 
     public void AttackOpponent()
     {
-        if (CurrentOpponent != null)
+        if (CurrentOpponent.isActiveAndEnabled)
         {
             if (CurrentOpponent.IsAlive)
             {
@@ -98,6 +106,10 @@ public class Fighter : MonoBehaviour
             {
                 StopFight();
             }
+        }
+        else
+        {
+            StopFight();
         }
     }
 
@@ -151,8 +163,11 @@ public class Fighter : MonoBehaviour
     void Die()
     {
         IsAlive = false;
-        CurrentOpponent.SendMessage("StopAttacked", GetComponent<Minion>());
-        gameObject.SetActive(false);        
+        if (CurrentOpponent != null && CurrentOpponent.isActiveAndEnabled)
+        {
+            CurrentOpponent.SendMessage("StopAttacked");
+        }
         StopFight();
+        gameObject.SetActive(false);        
     }
 }

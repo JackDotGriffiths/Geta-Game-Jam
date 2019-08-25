@@ -23,6 +23,7 @@ public class EnemyMover : MonoBehaviour, IPooledObject
         rb = gameObject.GetComponent<Rigidbody2D>();
 
         enemySpeed = Random.Range(0.5f, 1.2f) * enemySpeed;
+        isFighting = false;
     }
 
     private void Update()
@@ -53,9 +54,8 @@ public class EnemyMover : MonoBehaviour, IPooledObject
         GetComponent<Enemy>().StartFight(attacker);
     }
 
-    void StopAttacked(Fighter attacker)
+    public void StopAttacked()
     {
         isFighting = false;
-        GetComponent<Enemy>().StopFight();
     }
 }

@@ -72,10 +72,9 @@ public class MinionMover : MonoBehaviour , IPooledObject
         }
     }
 
-    void StopAttacked(Fighter attacker)
+    public void StopAttacked()
     {
         isFighting = false;
-        GetComponent<Minion>().StopFight();
     }
 
     //private void FindClosestEnemy()
