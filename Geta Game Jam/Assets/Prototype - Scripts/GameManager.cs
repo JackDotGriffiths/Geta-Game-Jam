@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
             m_instance = this;
         }
 
+        m_numberOfAngles = PlayerPrefs.GetInt("Channels");
+
         m_angleToUse = 360f / (float)m_numberOfAngles;
 
         m_angles = new float[m_numberOfAngles];

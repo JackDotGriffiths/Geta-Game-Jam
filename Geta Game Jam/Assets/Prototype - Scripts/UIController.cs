@@ -40,7 +40,7 @@ public class UIController : MonoBehaviour
     public void Loadlevel(int numberOfChannels)
     {
         PlayerPrefs.SetInt("Channels", numberOfChannels);
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("MainGame");
     }
 
     void Quit()
