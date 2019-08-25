@@ -72,7 +72,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > nextSpawn)
+        if(Time.time > nextSpawn && chosenSpawner != null)
         {
             nextSpawn = Time.time + currInterval;
 

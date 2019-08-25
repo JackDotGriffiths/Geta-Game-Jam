@@ -14,6 +14,9 @@ public class BuildingHealthControl : MonoBehaviour
     [SerializeField]
     private GameObject m_HealthBar;
 
+    [SerializeField]
+    private GameEvent victoryEvent, defeatEvent;
+
 
     private int InitialHealth;
 
@@ -41,12 +44,23 @@ public class BuildingHealthControl : MonoBehaviour
     {
         if (this.tag == "Portal")
         {
-            SpawnManager.Instance.Spawners.Remove(this.gameObject);
+            SpawnManager.Instance.Spawners.Remove(this.gameObject);        
         }
+        else
+        {
+            defeatEvent.Raise();
+        }
+
         if (m_HealthBar != null)
         {
             Destroy(m_HealthBar);
         }
-        Destroy(this.gameObject);
+
+        if(SpawnManager.Instance.Spawners.Count == 0)
+        {
+            victoryEvent.Raise();
+        }
+
+        Destroy(this.gameObject);       
     }
 }
