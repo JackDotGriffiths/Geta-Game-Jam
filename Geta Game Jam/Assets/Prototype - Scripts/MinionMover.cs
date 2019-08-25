@@ -72,6 +72,12 @@ public class MinionMover : MonoBehaviour , IPooledObject
         }
     }
 
+    void StopAttacked(Fighter attacker)
+    {
+        isFighting = false;
+        GetComponent<Minion>().StopFight();
+    }
+
     //private void FindClosestEnemy()
     //{
     //    float minDistance = Mathf.Infinity;

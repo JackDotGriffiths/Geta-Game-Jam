@@ -39,14 +39,14 @@ public class BuildingHealthControl : MonoBehaviour
 
     void Die()
     {
-        if(this.tag == "Portal")
+        if (this.tag == "Portal")
         {
             SpawnManager.Instance.Spawners.Remove(this.gameObject);
         }
-        if(m_HealthBar != null)
+        if (m_HealthBar != null)
         {
             Destroy(m_HealthBar);
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }
