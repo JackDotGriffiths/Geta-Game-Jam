@@ -1187,7 +1187,7 @@ MonoBehaviour:
   - {fileID: 1555632260194974422, guid: 013283b12028381438eca88bea8f7547, type: 3}
   enemyPrefab: {fileID: 1072539194187285226, guid: 65c8c7356581c0c4faa784be716c9d9b,
     type: 3}
-  interval: 8
+  interval: 10
   spawnerRadius: 0.5
   offsetRadius: 0.8
   m_enemyHealth: 10

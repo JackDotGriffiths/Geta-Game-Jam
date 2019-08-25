@@ -5,6 +5,7 @@ using UnityEngine;
 public class MinionMover : MonoBehaviour , IPooledObject
 {
     private float MinionSpeed = 0.5f;
+    private float BaseSpeed = 0.5f;
     private Rigidbody2D rb;
 
     //private GameObject closestEnemy;
@@ -16,7 +17,7 @@ public class MinionMover : MonoBehaviour , IPooledObject
     public void OnObjectSpawn()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        MinionSpeed = Random.Range(0.9f, 2f) * MinionSpeed;
+        MinionSpeed = Random.Range(0.9f, 2f) * BaseSpeed;
         //FindClosestEnemy();
 
         Debug.DrawRay(transform.position + transform.up, transform.up, Color.green);
