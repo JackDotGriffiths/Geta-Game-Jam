@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 828f2d1d5621e344da234ea44bdf1310
+=======
+guid: fbc70614f0f373d44a754f69efb64291
+>>>>>>> ParticleEffect
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
