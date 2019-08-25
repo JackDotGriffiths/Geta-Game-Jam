@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     [Tooltip("Interval in which enemies will spawn.")]
     private float interval;
+    private float currInterval;
 
     [SerializeField]
     [Tooltip("Spawner Radius determines the radius around a portal in which enemies will randomly spawn.")]
@@ -63,8 +64,9 @@ public class SpawnManager : MonoBehaviour
         {
             spawners.Add(spawner);
         }
+        currInterval = interval / (float)spawners.Count;
         chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
-        nextSpawn = Time.time + interval;
+        nextSpawn = Time.time + currInterval;
     }
 
     // Update is called once per frame
@@ -72,7 +74,7 @@ public class SpawnManager : MonoBehaviour
     {
         if(Time.time > nextSpawn)
         {
-            nextSpawn = Time.time + interval;
+            nextSpawn = Time.time + currInterval;
 
             Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             GameObject randomSpawnradius = new GameObject("TempSpawnPosition");
@@ -165,5 +167,10 @@ public class SpawnManager : MonoBehaviour
                 enemy.GetComponent<SpriteRenderer>().material = grassMat;
                 break;
         }
+    }
+
+    public void UpdateInterval()
+    {
+        currInterval = interval / (float)spawners.Count;
     }
 }
