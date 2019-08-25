@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8f27aee82092ce14a931a1a405e5df3f
+=======
+guid: 1d9cfe1a0dd1cc248b02d026ea0ce1b1
+>>>>>>> ParticleEffect
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6
