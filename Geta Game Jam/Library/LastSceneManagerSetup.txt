@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/TitleScreen.unity
+=======
+- path: Assets/Scenes/testingScenes/GriffTURRETYBITS.unity
+>>>>>>> PortalUpdates&PauseMenu
   isLoaded: 1
   isActive: 1
   isSubScene: 0
