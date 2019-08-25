@@ -29,7 +29,7 @@ public class MinionMover : MonoBehaviour , IPooledObject
         }
         else
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -43,7 +43,7 @@ public class MinionMover : MonoBehaviour , IPooledObject
             }
             catch
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }      
     }

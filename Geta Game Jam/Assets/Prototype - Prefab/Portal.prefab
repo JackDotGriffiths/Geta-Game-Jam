@@ -49,6 +49,8 @@ MonoBehaviour:
   fullHealthBar: {fileID: 5321684735539162306}
   Health: 100
   m_HealthBar: {fileID: 0}
+  victoryEvent: {fileID: 11400000, guid: 81a1d2b4428571e44b83e8e8518970f0, type: 2}
+  defeatEvent: {fileID: 0}
 --- !u!58 &-3100002585097707596
 CircleCollider2D:
   m_ObjectHideFlags: 0
