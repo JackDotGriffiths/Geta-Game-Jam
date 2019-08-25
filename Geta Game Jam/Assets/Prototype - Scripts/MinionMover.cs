@@ -68,7 +68,6 @@ public class MinionMover : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Portal")
         {
             isFighting = false;
-            collision.SendMessage("StopAttacked", GetComponent<Minion>());
             GetComponent<Minion>().StopFight();
         }
     }
