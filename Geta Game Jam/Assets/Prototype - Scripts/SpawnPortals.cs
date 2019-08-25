@@ -6,6 +6,7 @@ public class SpawnPortals : MonoBehaviour
 {
     public GameObject portalPrefab;
     public GameObject ChannelPrefab;
+    public GameObject WideChannelPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,14 @@ public class SpawnPortals : MonoBehaviour
     {
         Quaternion rot = new Quaternion();
         rot.eulerAngles = new Vector3(0, 0, zRot);
-        Instantiate(ChannelPrefab, new Vector2(_xCord / 1.6f, _yCord / 1.6f), rot);
+        if (GameManager.Instance.Angles.Length > 4)
+        {
+            Instantiate(ChannelPrefab, new Vector2(_xCord / 1.6f, _yCord / 1.6f), rot);
+        }
+        else
+        {
+            Instantiate(WideChannelPrefab, new Vector2(_xCord / 1.6f, _yCord / 1.6f), rot);
+        }
     }
 
     void SpawnThePortals()
