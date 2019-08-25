@@ -23,7 +23,7 @@ public class SpawnPortals : MonoBehaviour
     {
         Quaternion rot = new Quaternion();
         rot.eulerAngles = new Vector3(0, 0, zRot);
-        Instantiate(ChannelPrefab, new Vector2(_xCord / 2, _yCord / 2), rot);
+        Instantiate(ChannelPrefab, new Vector2(_xCord / 1.6f, _yCord / 1.6f), rot);
     }
 
     void SpawnThePortals()
