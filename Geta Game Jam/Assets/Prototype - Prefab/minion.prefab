@@ -162,3 +162,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ea6872cd1d5c2469a944c5e2612cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticleEffect: {fileID: 8655278611049893193, guid: df4f1ace1ea7d5547883a780794a797c,
+    type: 3}

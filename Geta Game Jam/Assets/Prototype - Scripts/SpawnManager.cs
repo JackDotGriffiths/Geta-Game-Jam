@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     private static SpawnManager m_instance;
 
     public GameObject[] particles;
+    
 
     [SerializeField]
     private GameObject enemyPrefab;
@@ -27,6 +28,9 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField]
     private float m_enemyHealth, m_enemyAttackSpeed, m_enemyDamage;
+
+    [SerializeField]
+    private GameObject particleDeathAnim;
 
     private float nextSpawn;
 
