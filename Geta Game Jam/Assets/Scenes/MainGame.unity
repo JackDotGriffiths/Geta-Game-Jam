@@ -621,6 +621,8 @@ MonoBehaviour:
     type: 3}
   ChannelPrefab: {fileID: 5494714685016938653, guid: fae0f53646385a8449db0d9c04e92233,
     type: 3}
+  WideChannelPrefab: {fileID: 5494714685016938653, guid: a1fa378eb513c604289c847c7011d3c6,
+    type: 3}
 --- !u!4 &447779069
 Transform:
   m_ObjectHideFlags: 0

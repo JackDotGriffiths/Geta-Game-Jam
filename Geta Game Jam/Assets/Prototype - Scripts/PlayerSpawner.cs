@@ -104,6 +104,24 @@ public class PlayerSpawner : MonoBehaviour
             NewCurrentElement();
         }
 
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            m_elementIndex = 0;
+            NewCurrentElement();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            m_elementIndex = 1;
+            NewCurrentElement();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            m_elementIndex = 2;
+            NewCurrentElement();
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if(GameObject.FindGameObjectsWithTag("Minion").Length < m_maximumMinionCount && cooldownImage.fillAmount == 1)
