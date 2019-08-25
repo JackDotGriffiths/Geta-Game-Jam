@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/testingScenes/GriffFixSpawning.unity
+- path: Assets/Scenes/testingScenes/BlastWave.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
