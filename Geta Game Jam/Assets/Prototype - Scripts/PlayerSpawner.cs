@@ -35,7 +35,11 @@ public class PlayerSpawner : MonoBehaviour
     private Elements[] m_allElements;
 
     [SerializeField]
-    private Material waterMat, fireMat, grassMat;
+    private Sprite[] waterSprites;
+    [SerializeField]
+    private Sprite[] grassSprites;
+    [SerializeField]
+    private Sprite[] fireSprites;
 
 
     [Header("Minion Spawning Control")]
@@ -186,12 +190,10 @@ public class PlayerSpawner : MonoBehaviour
                 minion.WeakAgainst = new Elements[] { Elements.Water };
                 break;
             case Elements.Water:
-                minion.GetComponent<SpriteRenderer>().material = waterMat;
                 minion.StrongAgainst = new Elements[] { Elements.Fire };
                 minion.WeakAgainst = new Elements[] { Elements.Grass };
                 break;
             case Elements.Grass:
-                minion.GetComponent<SpriteRenderer>().material = grassMat;
                 minion.StrongAgainst = new Elements[] { Elements.Water };
                 minion.WeakAgainst = new Elements[] { Elements.Fire };
                 break;
@@ -216,16 +218,18 @@ public class PlayerSpawner : MonoBehaviour
 
     private void SetMinionColour(GameObject minion)
     {
+        int randomColour = Random.Range(0, 3);
+
         switch(minion.GetComponent<Minion>().Element)
         {
             case Elements.Fire:
-                minion.GetComponent<SpriteRenderer>().material = fireMat;
+                minion.GetComponent<SpriteRenderer>().sprite = fireSprites[randomColour];
                 break;
             case Elements.Water:
-                minion.GetComponent<SpriteRenderer>().material = waterMat;
+                minion.GetComponent<SpriteRenderer>().sprite = waterSprites[randomColour];
                 break;
             case Elements.Grass:
-                minion.GetComponent<SpriteRenderer>().material = grassMat;
+                minion.GetComponent<SpriteRenderer>().sprite = grassSprites[randomColour];
                 break;
         }
     }

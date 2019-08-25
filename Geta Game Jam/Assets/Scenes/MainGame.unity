@@ -1196,9 +1196,18 @@ MonoBehaviour:
   waterSigil: {fileID: 21300000, guid: 2df98f76c28db80468283a3bb7d1df43, type: 3}
   grassSigil: {fileID: 21300000, guid: e38deb8cbbf492547a4b0cd912727cf7, type: 3}
   fireSigil: {fileID: 21300000, guid: 935eeb09910106848be552c57b6f7738, type: 3}
-  waterMat: {fileID: 2100000, guid: a8a733b94fcd0eb4e89cda38f48b9adb, type: 2}
-  fireMat: {fileID: 2100000, guid: 3b6d647274c670e47b0af4509cc37168, type: 2}
-  grassMat: {fileID: 2100000, guid: 847de4eb832ae284bbc8307903c79ee6, type: 2}
+  waterSprites:
+  - {fileID: 21300000, guid: baaf3123874f1ce469901147bbb9c7aa, type: 3}
+  - {fileID: 21300000, guid: 98c67fe93c1be1e41910a18f8d763bd7, type: 3}
+  - {fileID: 21300000, guid: 1d40c467d7593ba4383deddaeed8594d, type: 3}
+  grassSprites:
+  - {fileID: 21300000, guid: 514d9ea137910ed4ca02df3417734f61, type: 3}
+  - {fileID: 21300000, guid: dd9c8d0605e40ba458c6acd53b505d65, type: 3}
+  - {fileID: 21300000, guid: 4c23a250a370efc41b02588f91e4cd1d, type: 3}
+  fireSprites:
+  - {fileID: 21300000, guid: 428cdff82adaba945a3fda04b7566ea0, type: 3}
+  - {fileID: 21300000, guid: cefa8b195f54b15469597cc8f0a6b7df, type: 3}
+  - {fileID: 21300000, guid: 8092c0a628eedd34fb5e6ddc8560e603, type: 3}
 --- !u!4 &719853352
 Transform:
   m_ObjectHideFlags: 0
@@ -1502,9 +1511,18 @@ MonoBehaviour:
   playerRenderer: {fileID: 885676408}
   m_currentElement: 0
   m_allElements: 000000000100000002000000
-  waterMat: {fileID: 2100000, guid: ba7df42624c424a4da83a0dac45c2a6c, type: 2}
-  fireMat: {fileID: 2100000, guid: d306289682daf674ca85671a050ac04b, type: 2}
-  grassMat: {fileID: 2100000, guid: e659caf87effa144bb7c54affb09b3c1, type: 2}
+  waterSprites:
+  - {fileID: 21300000, guid: b609ea80e5d58934caa13fb1e8f5a5fa, type: 3}
+  - {fileID: 21300000, guid: 51ef610c9c293ef47952ce1db094fff2, type: 3}
+  - {fileID: 21300000, guid: d3dd4bbb505347042b09dfc2ccac3352, type: 3}
+  grassSprites:
+  - {fileID: 21300000, guid: 7532993a1ff30e845b89c458c0f559ac, type: 3}
+  - {fileID: 21300000, guid: f593255207b1dee4c97149a01c19666b, type: 3}
+  - {fileID: 21300000, guid: 46e3a1d8c49388247aca8404d214b17d, type: 3}
+  fireSprites:
+  - {fileID: 21300000, guid: 10bb2a3765203494c8368031bfb1fc32, type: 3}
+  - {fileID: 21300000, guid: cf56580260202a74bbc0b21a47c596be, type: 3}
+  - {fileID: 21300000, guid: 93a44bcfa4595c649b74504af5f6fc6d, type: 3}
   m_maximumMinionCount: 20
   m_cooldownTimer: 1
   cooldownImage: {fileID: 1039403461}
@@ -1601,7 +1619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullHealthBar: {fileID: 1516967468}
-  Health: 1
+  Health: 100
   m_HealthBar: {fileID: 1794513401}
   victoryEvent: {fileID: 11400000, guid: 81a1d2b4428571e44b83e8e8518970f0, type: 2}
   defeatEvent: {fileID: 11400000, guid: ce3c6051c4ee7f24aaa18b9ba7bfafea, type: 2}

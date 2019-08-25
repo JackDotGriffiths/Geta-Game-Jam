@@ -40,7 +40,11 @@ public class SpawnManager : MonoBehaviour
     private Sprite waterSigil, grassSigil, fireSigil;
 
     [SerializeField]
-    private Material waterMat, fireMat, grassMat;
+    private Sprite[] waterSprites;
+    [SerializeField]
+    private Sprite[] grassSprites;
+    [SerializeField]
+    private Sprite[] fireSprites;
 
     public static SpawnManager Instance { get => m_instance; set => m_instance = value; }
     public List<GameObject> Spawners { get => spawners; set => spawners = value; }
@@ -163,12 +167,10 @@ public class SpawnManager : MonoBehaviour
                 enemy.WeakAgainst = new Elements[] { Elements.Water };
                 break;
             case Elements.Water:
-                enemy.GetComponent<SpriteRenderer>().material = waterMat;
                 enemy.StrongAgainst = new Elements[] { Elements.Fire };
                 enemy.WeakAgainst = new Elements[] { Elements.Grass };
                 break;
             case Elements.Grass:
-                enemy.GetComponent<SpriteRenderer>().material = grassMat;
                 enemy.StrongAgainst = new Elements[] { Elements.Water };
                 enemy.WeakAgainst = new Elements[] { Elements.Fire };
                 break;
@@ -177,16 +179,18 @@ public class SpawnManager : MonoBehaviour
 
     private void SetEnemyColour(GameObject enemy)
     {
+        int chosenSprite = Random.Range(0, 3);
+
         switch (enemy.GetComponent<Enemy>().Element)
         {
-            case Elements.Fire:
-                enemy.GetComponent<SpriteRenderer>().material = fireMat;
+            case Elements.Fire:     
+                enemy.GetComponent<SpriteRenderer>().sprite = fireSprites[chosenSprite];
                 break;
             case Elements.Water:
-                enemy.GetComponent<SpriteRenderer>().material = waterMat;
+                enemy.GetComponent<SpriteRenderer>().sprite = waterSprites[chosenSprite];
                 break;
             case Elements.Grass:
-                enemy.GetComponent<SpriteRenderer>().material = grassMat;
+                enemy.GetComponent<SpriteRenderer>().sprite = grassSprites[chosenSprite];
                 break;
         }
     }
