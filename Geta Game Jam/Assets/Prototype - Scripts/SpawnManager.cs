@@ -82,8 +82,8 @@ public class SpawnManager : MonoBehaviour
             //Offset to prevent stickin'
             randomSpawnradius.transform.position = Vector3.MoveTowards(randomSpawnradius.transform.position, Player.position, offsetRadius);
              
-            Vector3 offset = Random.insideUnitCircle * spawnerRadius;
-            Vector3 generatedSpawnPosition = chosenSpawner.position + offset;
+            Vector3 RandomOffset = Random.insideUnitCircle * spawnerRadius;
+            Vector3 generatedSpawnPosition = randomSpawnradius.transform.position + RandomOffset;
 
             GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
 
