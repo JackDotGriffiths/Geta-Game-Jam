@@ -31,7 +31,6 @@ public class Fighter : MonoBehaviour
     public Elements[] WeakAgainst { get => m_weakAgainst; set => m_weakAgainst = value; }
     public bool IsAlive { get => m_isAlive; set => m_isAlive = value; }
     public GameObject ParticleEffect { get => m_particleEffect; set => m_particleEffect = value; }
-    public GameObject deathParticleEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -185,7 +184,6 @@ public class Fighter : MonoBehaviour
 
     void Die()
     {
-        Instantiate(deathParticleEffect, transform.position, transform.rotation);
         IsAlive = false;
         if (CurrentOpponent != null && CurrentOpponent.isActiveAndEnabled)
         {
