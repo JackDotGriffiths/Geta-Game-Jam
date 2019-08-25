@@ -85,9 +85,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 RandomOffset = Random.insideUnitCircle * spawnerRadius;
             Vector3 generatedSpawnPosition = randomSpawnradius.transform.position + RandomOffset;
 
-            GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
 
-            
+            //GameObject enemyClone = Instantiate(enemyPrefab, generatedSpawnPosition, chosenSpawner.rotation);
+
+            GameObject enemyClone = ObjectPooler.Instance.SpawnFromPool("Enemy", generatedSpawnPosition, chosenSpawner.rotation);
 
             enemyClone.GetComponent<Enemy>().Element = nextElement;
 

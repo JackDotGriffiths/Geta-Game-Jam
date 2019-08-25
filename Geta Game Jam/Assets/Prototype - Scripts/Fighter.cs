@@ -132,6 +132,6 @@ public class Fighter : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
