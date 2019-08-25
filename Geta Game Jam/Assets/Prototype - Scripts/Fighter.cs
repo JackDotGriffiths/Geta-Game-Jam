@@ -55,6 +55,11 @@ public class Fighter : MonoBehaviour
             IsInFight = true;
             CurrentStructure = _structure;
             InvokeRepeating("AttackStructure", 0, AttackSpeed);
+
+            if(CurrentStructure.gameObject.tag == "Portal")
+            {
+                InvokeRepeating("TakePortalDamage", 0, AttackSpeed);
+            }
         }
     }
 
@@ -85,6 +90,18 @@ public class Fighter : MonoBehaviour
         Health -= _damage * ModifiedDamage(_elementType);
 
         if(Health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void TakePortalDamage()
+    {
+        Debug.Log("Got attacked");
+
+        Health -= 1;
+
+        if (Health <= 0)
         {
             Die();
         }
