@@ -7,6 +7,7 @@ public class EnemyMover : MonoBehaviour, IPooledObject
     private GameObject spawner;
 
     private float enemySpeed = 0.5f;
+    private float baseEnemySpeed = 0.5f;
     private Rigidbody2D rb;
 
     private GameObject closestMinion;
@@ -22,7 +23,7 @@ public class EnemyMover : MonoBehaviour, IPooledObject
         player = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody2D>();
 
-        enemySpeed = Random.Range(0.5f, 1.2f) * enemySpeed;
+        enemySpeed = Random.Range(0.5f, 1.2f) * baseEnemySpeed;
         isFighting = false;
     }
 
