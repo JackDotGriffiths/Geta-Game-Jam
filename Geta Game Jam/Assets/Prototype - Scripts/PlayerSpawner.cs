@@ -152,6 +152,7 @@ public class PlayerSpawner : MonoBehaviour
         minion.GetComponent<Minion>().Health = m_minionHealth;
         minion.GetComponent<Minion>().Damage = m_minionDamage;
         minion.GetComponent<Minion>().AttackSpeed = m_minionAttackSpeed;
+        minion.GetComponent<Minion>().IsAlive = true;
     }
 
     private void SetStrengthsAndWeaknesses(Fighter minion)
