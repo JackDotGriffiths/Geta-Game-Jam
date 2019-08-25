@@ -95,7 +95,6 @@ public class Fighter : MonoBehaviour
 
     public void StopFight()
     {
-        ParticlesOff();
         if(gameObject.GetComponent<EnemyMover>() != null)
         {
             gameObject.GetComponent<EnemyMover>().StopAttacked();
