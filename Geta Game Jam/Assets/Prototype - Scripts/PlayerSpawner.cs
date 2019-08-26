@@ -73,71 +73,75 @@ public class PlayerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f) //Forward
+        if (!PauseMenu.Instance.IsPaused)
         {
-            m_elementIndex++;
-            if (m_elementIndex == m_allElements.Length)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f) //Forward
+            {
+                m_elementIndex++;
+                if (m_elementIndex == m_allElements.Length)
+                {
+                    m_elementIndex = 0;
+                }
+                NewCurrentElement();
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f) //Backwards
+            {
+                m_elementIndex--;
+                if (m_elementIndex == -1)
+                {
+                    m_elementIndex = m_allElements.Length - 1;
+                }
+                NewCurrentElement();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 m_elementIndex = 0;
+                NewCurrentElement();
             }
-            NewCurrentElement();
-        }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f) //Backwards
-        {
-            m_elementIndex--;
-            if (m_elementIndex == -1)
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                m_elementIndex = m_allElements.Length - 1;
+                m_elementIndex = 1;
+                NewCurrentElement();
             }
-            NewCurrentElement();
-        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            m_elementIndex = 0;
-            NewCurrentElement();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            m_elementIndex = 1;
-            NewCurrentElement();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            m_elementIndex = 2;
-            NewCurrentElement();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            m_elementIndex = 0;
-            NewCurrentElement();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            m_elementIndex = 1;
-            NewCurrentElement();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            m_elementIndex = 2;
-            NewCurrentElement();
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(GameObject.FindGameObjectsWithTag("Minion").Length < m_maximumMinionCount && cooldownImage.fillAmount == 1)
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                SpawnMinion();
+                m_elementIndex = 2;
+                NewCurrentElement();
             }
-        }
 
-        cooldownImage.fillAmount += Time.deltaTime * m_cooldownTimer;
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                m_elementIndex = 0;
+                NewCurrentElement();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                m_elementIndex = 1;
+                NewCurrentElement();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                m_elementIndex = 2;
+                NewCurrentElement();
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (GameObject.FindGameObjectsWithTag("Minion").Length < m_maximumMinionCount && cooldownImage.fillAmount == 1)
+                {
+                    SpawnMinion();
+                }
+            }
+
+
+            cooldownImage.fillAmount += Time.deltaTime * m_cooldownTimer;
+        }
     }
 
     void NewCurrentElement()

@@ -9,7 +9,17 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu;
 
+    private static PauseMenu m_instance;
+
     private bool isPaused;
+
+    public static PauseMenu Instance { get => m_instance; set => m_instance = value; }
+    public bool IsPaused { get => isPaused; set => isPaused = value; }
+
+    private void Awake()
+    {
+        m_instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +43,7 @@ public class PauseMenu : MonoBehaviour
         if(isPaused)
         {
             pauseMenu.SetActive(true);
-            Time.timeScale = 0.1f;
+            Time.timeScale = 0f;
         }
 
         if(!isPaused)

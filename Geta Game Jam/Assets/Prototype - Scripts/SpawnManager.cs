@@ -84,7 +84,10 @@ public class SpawnManager : MonoBehaviour
     {
         if(Time.time > nextSpawn && chosenSpawner != null)
         {
-            nextSpawn = Time.time + currInterval;
+            if (!PauseMenu.Instance.IsPaused)
+            {
+                nextSpawn = Time.time + currInterval;
+            }
 
             Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             GameObject randomSpawnradius = new GameObject("TempSpawnPosition");

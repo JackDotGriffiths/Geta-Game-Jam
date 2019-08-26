@@ -31,30 +31,33 @@ public class BlastWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2") && m_canShootBlast)
+        if (!PauseMenu.Instance.IsPaused)
         {
-            Blast();
-            AudioManager.instance.Play("BlastWave");
-            m_canShootBlast = false;
-            StartCoroutine("Cooldown");
-            coolDownImageFill = 0;
-        }
-
-        if (moveBalstWave)
-        {
-            currBlastWave.transform.position = Vector3.MoveTowards(currBlastWave.transform.position, targetPortal.transform.position, m_blastSpeed * Time.deltaTime);
-            if(Vector2.Distance(currBlastWave.transform.position, targetPortal.transform.position) < 0.2f)
+            if (Input.GetButtonDown("Fire2") && m_canShootBlast)
             {
-                Destroy(currBlastWave);
-                moveBalstWave = false;
+                Blast();
+                AudioManager.instance.Play("BlastWave");
+                m_canShootBlast = false;
+                StartCoroutine("Cooldown");
+                coolDownImageFill = 0;
             }
-        }
 
-        cooldownImage.fillAmount = coolDownImageFill;
+            if (moveBalstWave)
+            {
+                currBlastWave.transform.position = Vector3.MoveTowards(currBlastWave.transform.position, targetPortal.transform.position, m_blastSpeed * Time.deltaTime);
+                if (Vector2.Distance(currBlastWave.transform.position, targetPortal.transform.position) < 0.2f)
+                {
+                    Destroy(currBlastWave);
+                    moveBalstWave = false;
+                }
+            }
 
-        if(coolDownImageFill < 1)
-        {
-            coolDownImageFill += (1 / m_cooldown) * Time.deltaTime;
+            cooldownImage.fillAmount = coolDownImageFill;
+
+            if (coolDownImageFill < 1)
+            {
+                coolDownImageFill += (1 / m_cooldown) * Time.deltaTime;
+            }
         }
     }
 

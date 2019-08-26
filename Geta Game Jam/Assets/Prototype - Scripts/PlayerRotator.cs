@@ -42,7 +42,10 @@ public class PlayerRotator : MonoBehaviour
         Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
         targetRot.eulerAngles = new Vector3(0, 0, GetClosestAngle(rot.eulerAngles.z));
 
-        transform.rotation =  Quaternion.Lerp(transform.rotation, targetRot, rotSpeed);
+        if (!PauseMenu.Instance.IsPaused)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, rotSpeed);
+        }
     }
 
     float GetClosestAngle(float _anglePassed)
