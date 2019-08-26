@@ -1,4 +1,5 @@
 sceneSetups:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 - path: Assets/Scenes/MainGame.unity
 =======
@@ -12,6 +13,9 @@ sceneSetups:
 >>>>>>> StagingBranch
 >>>>>>> StagingBranch
 >>>>>>> StagingBranch
+=======
+- path: Assets/Scenes/testingScenes/BlastWave.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
   isSubScene: 0
