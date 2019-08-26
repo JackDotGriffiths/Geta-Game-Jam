@@ -499,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 275291345}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: spawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,14 +1185,15 @@ MonoBehaviour:
   - {fileID: 3442992480059125312, guid: ccc6da6cf197a69468eaae5e9699db16, type: 3}
   - {fileID: 4053442484313298838, guid: 92563ecc0293a9c4d876343982b5ca41, type: 3}
   - {fileID: 1555632260194974422, guid: 013283b12028381438eca88bea8f7547, type: 3}
-  enemyPrefab: {fileID: 1072539194187285226, guid: 65c8c7356581c0c4faa784be716c9d9b,
+  enemyPrefab: {fileID: 402257549453543497, guid: a2dd01552d34e194c8670dbe5fc7cef8,
     type: 3}
-  interval: 10
+  interval: 1.01
   spawnerRadius: 0.5
   offsetRadius: 0.8
   m_enemyHealth: 10
   m_enemyAttackSpeed: 1
   m_enemyDamage: 3
+  particleDeathAnim: {fileID: 0}
   waterSigil: {fileID: 21300000, guid: 2df98f76c28db80468283a3bb7d1df43, type: 3}
   grassSigil: {fileID: 21300000, guid: e38deb8cbbf492547a4b0cd912727cf7, type: 3}
   fireSigil: {fileID: 21300000, guid: 935eeb09910106848be552c57b6f7738, type: 3}
@@ -1559,7 +1560,8 @@ GameObject:
   - component: {fileID: 885676406}
   - component: {fileID: 885676410}
   - component: {fileID: 885676411}
-  m_Layer: 0
+  - component: {fileID: 885676412}
+  m_Layer: 2
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1579,7 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minionSpawn: {fileID: 275291344}
-  minionPrefab: {fileID: 2509534044061061290, guid: 8f47163c07a2b634e93738751d9ac5ab,
+  minionPrefab: {fileID: 6565368179780048801, guid: 3c449477f6bf86d47a30652b58d99fc4,
     type: 3}
   particles:
   - {fileID: 3442992480059125312, guid: ccc6da6cf197a69468eaae5e9699db16, type: 3}
@@ -1719,6 +1721,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.91
+--- !u!114 &885676412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885676405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ecb0aea4eedcc4f9c7d9941219f86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlastWaveObject: {fileID: 2133724132709830120, guid: de7b08f3179ffc446bd97290291c3caf,
+    type: 3}
+  BlastWaveAnim: {fileID: 2176302412543275362, guid: 52ab7dd08935a0a419827f9353669868,
+    type: 3}
+  m_blastSpeed: 3.5
+  currBlastWave: {fileID: 0}
 --- !u!1 &979574257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3029,12 +3049,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: Minion
-    prefab: {fileID: 2509534044061061290, guid: 8f47163c07a2b634e93738751d9ac5ab,
+    prefab: {fileID: 6565368179780048801, guid: 3c449477f6bf86d47a30652b58d99fc4,
       type: 3}
     size: 20
   - tag: Enemy
-    prefab: {fileID: 1072539194187285226, guid: 65c8c7356581c0c4faa784be716c9d9b,
-      type: 3}
+    prefab: {fileID: 402257549453543497, guid: a2dd01552d34e194c8670dbe5fc7cef8, type: 3}
     size: 20
 --- !u!1 &1794513401
 GameObject:

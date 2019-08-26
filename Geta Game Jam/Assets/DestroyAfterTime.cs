@@ -8,7 +8,7 @@ public class DestroyAfterTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroySelf", 1f);
+        Invoke("DestroySelf", m_destroyTimer);
     }
     void DestroySelf()
     {
