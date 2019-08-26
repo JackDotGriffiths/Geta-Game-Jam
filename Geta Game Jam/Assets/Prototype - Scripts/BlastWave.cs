@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlastWave : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class BlastWave : MonoBehaviour
     public GameObject BlastWaveAnim;
     public CameraShake CameraShake;
 
+    public Image cooldownImage;
+
+    private float coolDownImageFill = 1;
     [SerializeField]
     private float m_cooldown;
 
@@ -32,6 +36,7 @@ public class BlastWave : MonoBehaviour
             Blast();
             m_canShootBlast = false;
             StartCoroutine("Cooldown");
+            coolDownImageFill = 0;
         }
 
         if (moveBalstWave)
@@ -42,6 +47,13 @@ public class BlastWave : MonoBehaviour
                 Destroy(currBlastWave);
                 moveBalstWave = false;
             }
+        }
+
+        cooldownImage.fillAmount = coolDownImageFill;
+
+        if(coolDownImageFill < 1)
+        {
+            coolDownImageFill += (1 / m_cooldown) * Time.deltaTime;
         }
     }
 
