@@ -6,6 +6,7 @@ public class BlastWave : MonoBehaviour
 {
     public GameObject BlastWaveObject;
     public GameObject BlastWaveAnim;
+    public CameraShake CameraShake;
 
     [SerializeField]
     private float m_cooldown;
@@ -57,6 +58,7 @@ public class BlastWave : MonoBehaviour
         m_blastRot = transform.rotation;
         InvokeRepeating("BlastEffect", 0f, 0.2f);
         Invoke("StopInvokes", 0.6f);
+        StartCoroutine(CameraShake.Shake(.8f, .08f));
         moveBalstWave = true;
 
         Debug.DrawRay(transform.position + transform.up, transform.up, Color.green);
