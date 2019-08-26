@@ -7,6 +7,11 @@ public class BlastWave : MonoBehaviour
     public GameObject BlastWaveObject;
     public GameObject BlastWaveAnim;
 
+    [SerializeField]
+    private float m_cooldown;
+
+    private bool m_canShootBlast = true;
+
     private Vector2 m_blastPos;
     private Quaternion m_blastRot;
 
@@ -21,9 +26,11 @@ public class BlastWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && m_canShootBlast)
         {
             Blast();
+            m_canShootBlast = false;
+            StartCoroutine("Cooldown");
         }
 
         if (moveBalstWave)
@@ -35,6 +42,12 @@ public class BlastWave : MonoBehaviour
                 moveBalstWave = false;
             }
         }
+    }
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(m_cooldown);
+        m_canShootBlast = true;
     }
 
     void Blast()

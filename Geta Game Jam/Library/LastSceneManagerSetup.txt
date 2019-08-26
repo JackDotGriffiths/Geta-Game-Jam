@@ -1,21 +1,5 @@
 sceneSetups:
-<<<<<<< Updated upstream
-<<<<<<< HEAD
 - path: Assets/Scenes/MainGame.unity
-=======
-<<<<<<< HEAD
-- path: Assets/Scenes/testingScenes/GriffFixSpawning.unity
-=======
-<<<<<<< HEAD
-- path: Assets/Scenes/testingScenes/BlastWave.unity
-=======
-- path: Assets/Scenes/testingScenes/Minion&EnemyDeath.unity
->>>>>>> StagingBranch
->>>>>>> StagingBranch
->>>>>>> StagingBranch
-=======
-- path: Assets/Scenes/testingScenes/BlastWave.unity
->>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
   isSubScene: 0

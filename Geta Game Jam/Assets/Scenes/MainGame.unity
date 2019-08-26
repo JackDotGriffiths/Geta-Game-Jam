@@ -1187,7 +1187,7 @@ MonoBehaviour:
   - {fileID: 1555632260194974422, guid: 013283b12028381438eca88bea8f7547, type: 3}
   enemyPrefab: {fileID: 402257549453543497, guid: a2dd01552d34e194c8670dbe5fc7cef8,
     type: 3}
-  interval: 1.01
+  interval: 10
   spawnerRadius: 0.5
   offsetRadius: 0.8
   m_enemyHealth: 10
@@ -1737,6 +1737,7 @@ MonoBehaviour:
     type: 3}
   BlastWaveAnim: {fileID: 2176302412543275362, guid: 52ab7dd08935a0a419827f9353669868,
     type: 3}
+  m_cooldown: 4
   m_blastSpeed: 3.5
   currBlastWave: {fileID: 0}
 --- !u!1 &979574257
