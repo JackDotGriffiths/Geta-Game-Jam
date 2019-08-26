@@ -52,9 +52,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMain()
     {
-        isPaused = !isPaused;
-
-        TogglePauseState();
+        isPaused = false;
         SceneManager.LoadScene("TitleScreen");
     }
 }
