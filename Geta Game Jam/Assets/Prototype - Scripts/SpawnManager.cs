@@ -102,6 +102,21 @@ public class SpawnManager : MonoBehaviour
 
             GameObject enemyClone = ObjectPooler.Instance.SpawnFromPool("Enemy", generatedSpawnPosition, chosenSpawner.rotation);
 
+            int _index = Random.Range(0, 3);
+            switch (_index)
+            {
+                case 0:
+                    AudioManager.instance.Play("EnemySpawn1");
+                    break;
+                case 1:
+                    AudioManager.instance.Play("EnemySpawn2");
+                    break;
+                case 2:
+                    AudioManager.instance.Play("EnemySpawn3");
+                    break;
+
+            }
+
             enemyClone.GetComponent<Enemy>().Element = nextElement;
 
             SetStrengthsAndWeaknesses(enemyClone.GetComponent<Enemy>());

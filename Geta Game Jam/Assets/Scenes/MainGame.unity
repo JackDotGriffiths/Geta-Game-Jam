@@ -3405,6 +3405,30 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: EnemySpawn1
+    clip: {fileID: 8300000, guid: 1ab74456fb43030408def9e79ffca8d5, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemySpawn2
+    clip: {fileID: 8300000, guid: 604b05efcd1b8c043ae1f34f27c7c891, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemySpawn3
+    clip: {fileID: 8300000, guid: ba32577bdca3fa24bb5c49177207b0d4, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Music
+    clip: {fileID: 8300000, guid: 4bfefa6c058424748872b45cc786befd, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1511496114
 Transform:
   m_ObjectHideFlags: 0
