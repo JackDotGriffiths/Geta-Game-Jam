@@ -73,7 +73,16 @@ public class BlastWave : MonoBehaviour
 
     void BlastEffect()
     {
-        Instantiate(BlastWaveAnim, m_blastPos, m_blastRot);
+        GameObject newBlastEffect = Instantiate(BlastWaveAnim, m_blastPos, m_blastRot);
+        if(GameManager.Instance.NumberOfAngles > 4)
+        {
+            ParticleSystem[] ps = newBlastEffect.GetComponentsInChildren<ParticleSystem>();
+            for (int i = 0; i < ps.Length; i++)
+            {
+                var ma = ps[i].shape;
+                ma.radius = 0.12f;
+            }
+        }
     }
 
     void StopInvokes()
