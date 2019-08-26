@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerRotator : MonoBehaviour
 {
     private Vector3 mousePosition;
+    private Quaternion targetRot;
+
+    [SerializeField]
+    private float rotSpeed;
 
     #region Angle parameters
     private int m_numberOfAngles;
@@ -36,7 +40,9 @@ public class PlayerRotator : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
-        transform.eulerAngles = new Vector3(0, 0, GetClosestAngle(rot.eulerAngles.z));
+        targetRot.eulerAngles = new Vector3(0, 0, GetClosestAngle(rot.eulerAngles.z));
+
+        transform.rotation =  Quaternion.Lerp(transform.rotation, targetRot, rotSpeed);
     }
 
     float GetClosestAngle(float _anglePassed)
