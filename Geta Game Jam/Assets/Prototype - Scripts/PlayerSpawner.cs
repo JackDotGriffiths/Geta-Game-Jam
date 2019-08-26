@@ -167,7 +167,20 @@ public class PlayerSpawner : MonoBehaviour
         //GameObject minion = Instantiate(minionPrefab, minionSpawn.transform.position, minionSpawn.transform.rotation);
         GameObject minion = ObjectPooler.Instance.SpawnFromPool("Minion", minionSpawn.transform.position, minionSpawn.transform.rotation);
 
+        int _index = Random.Range(0, 3);
+        switch (_index)
+        {
+            case 0:
+                AudioManager.instance.Play("Pop1");
+                break;
+            case 1:
+                AudioManager.instance.Play("Pop2");
+                break;
+            case 2:
+                AudioManager.instance.Play("Pop3");
+                break;
 
+        }
 
         minion.GetComponent<Minion>().Element = m_currentElement;
 

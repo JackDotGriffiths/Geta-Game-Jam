@@ -1338,10 +1338,10 @@ RectTransform:
   m_Father: {fileID: 1504808954}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.65500003}
-  m_AnchorMax: {x: 1, y: 0.74375004}
-  m_AnchoredPosition: {x: 0.000030517578, y: 31.449982}
-  m_SizeDelta: {x: -154.3, y: 62.9}
+  m_AnchorMin: {x: 0, y: 0.46125}
+  m_AnchorMax: {x: 1, y: 0.63125}
+  m_AnchoredPosition: {x: 0.051086426, y: 0.5}
+  m_SizeDelta: {x: -154.3, y: -2.0999985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599155252
 MonoBehaviour:
@@ -1557,7 +1557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -420}
+  m_AnchoredPosition: {x: -0.000045776367, y: -166}
   m_SizeDelta: {x: -178.8, y: 159.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711573713
@@ -3341,19 +3341,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pew1
     clip: {fileID: 8300000, guid: 5e4e52fb5c12bb14e9fabbe8952a3844, type: 3}
-    volume: 0.01
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Pew2
     clip: {fileID: 8300000, guid: 97945eb1de40ee34484b79e1201e72cf, type: 3}
-    volume: 0.01
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Pew3
     clip: {fileID: 8300000, guid: f2f1b002df0c757448cb5e7d63923ed1, type: 3}
-    volume: 0.01
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -3377,19 +3377,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pop1
     clip: {fileID: 8300000, guid: 5ef77e8502a20b04da4fc458a4bdcb1f, type: 3}
-    volume: 0.01
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Pop2
     clip: {fileID: 8300000, guid: 8f27aee82092ce14a931a1a405e5df3f, type: 3}
-    volume: 0.01
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Pop3
     clip: {fileID: 8300000, guid: f67a07f8edeee3c4ca3dffe703b9fc6b, type: 3}
-    volume: 0.01
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
