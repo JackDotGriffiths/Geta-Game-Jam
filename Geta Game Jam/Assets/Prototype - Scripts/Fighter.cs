@@ -239,6 +239,7 @@ public class Fighter : MonoBehaviour
         {
             CurrentOpponent.SendMessage("StopAttacked");
         }
+        ParticlesOff();
         StopFight();
         gameObject.SetActive(false);        
     }

@@ -19,4 +19,9 @@ public class CameraShake : MonoBehaviour
         }
         transform.localPosition = originalPos;
     }
+
+    public void fromBuilding()
+    {
+        StartCoroutine(Shake(.8f, .08f));
+    }
 }

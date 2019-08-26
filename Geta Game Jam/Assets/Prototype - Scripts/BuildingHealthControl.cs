@@ -18,6 +18,7 @@ public class BuildingHealthControl : MonoBehaviour
     private GameEvent victoryEvent, defeatEvent;
 
     public GameObject DeathParticles;
+    public CameraShake _CameraShake;
 
 
     private int InitialHealth;
@@ -25,6 +26,7 @@ public class BuildingHealthControl : MonoBehaviour
     private void Start()
     {
         InitialHealth = Health;
+        _CameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     void UpdateHealthBar()
@@ -66,7 +68,9 @@ public class BuildingHealthControl : MonoBehaviour
             victoryEvent.Raise();
             AudioManager.instance.Play("Victory");
         }
-        
+
+        _CameraShake.fromBuilding();
+
         Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
 
         Destroy(this.gameObject);       
