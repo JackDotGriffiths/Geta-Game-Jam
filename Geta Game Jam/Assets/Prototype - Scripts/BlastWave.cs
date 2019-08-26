@@ -34,6 +34,7 @@ public class BlastWave : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && m_canShootBlast)
         {
             Blast();
+            AudioManager.instance.Play("BlastWave");
             m_canShootBlast = false;
             StartCoroutine("Cooldown");
             coolDownImageFill = 0;

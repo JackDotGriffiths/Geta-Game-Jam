@@ -30,6 +30,20 @@ public class AudioManager : MonoBehaviour
 
             s.source.loop = s.loop;
         }
+
+        PlayMusic("Music");
+    }
+
+    void PlayMusic(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found! maybe you misspelled it dummy");
+        }
+
+        s.source.Play();
     }
 
     #region Audio to play no matter what

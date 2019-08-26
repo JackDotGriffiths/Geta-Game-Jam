@@ -112,6 +112,23 @@ public class Fighter : MonoBehaviour
     public void AttackStructure()
     {
         CurrentStructure.Attack(Damage);
+        int _index = Random.Range(0, 4);
+        switch (_index)
+        {
+            case 0:
+                AudioManager.instance.Play("Pew1");
+                break;
+            case 1:
+                AudioManager.instance.Play("Pew2");
+                break;
+            case 2:
+                AudioManager.instance.Play("Pew3");
+                break;
+            case 3:
+                AudioManager.instance.Play("Pew4");
+                break;
+
+        }
         ParticlesOn();
     }
 
@@ -123,6 +140,23 @@ public class Fighter : MonoBehaviour
             if (CurrentOpponent.IsAlive)
             {
                 CurrentOpponent.TakeDamage(Damage, Element);
+                int _index = Random.Range(0, 4);
+                switch (_index)
+                {
+                    case 0:
+                        AudioManager.instance.Play("Pew1");
+                        break;
+                    case 1:
+                        AudioManager.instance.Play("Pew2");
+                        break;
+                    case 2:
+                        AudioManager.instance.Play("Pew3");
+                        break;
+                    case 3:
+                        AudioManager.instance.Play("Pew4");
+                        break;
+
+                }
                 Debug.Log("Attck");
             }
             else
@@ -185,6 +219,20 @@ public class Fighter : MonoBehaviour
 
     void Die()
     {
+        int _index = Random.Range(0, 3);
+        switch (_index)
+        {
+            case 0:
+                AudioManager.instance.Play("Pop1");
+                break;
+            case 1:
+                AudioManager.instance.Play("Pop2");
+                break;
+            case 2:
+                AudioManager.instance.Play("Pop3");
+                break;
+
+        }
         Instantiate(deathParticleEffect, transform.position, transform.rotation);
         IsAlive = false;
         if (CurrentOpponent != null && CurrentOpponent.isActiveAndEnabled)
