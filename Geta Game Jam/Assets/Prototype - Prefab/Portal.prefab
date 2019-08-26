@@ -208,6 +208,8 @@ MonoBehaviour:
   m_HealthBar: {fileID: 0}
   victoryEvent: {fileID: 11400000, guid: 81a1d2b4428571e44b83e8e8518970f0, type: 2}
   defeatEvent: {fileID: 0}
+  DeathParticles: {fileID: 4437356826079560248, guid: acd9e436b25a9a441b5ef2b507a5f415,
+    type: 3}
 --- !u!58 &-3100002585097707596
 CircleCollider2D:
   m_ObjectHideFlags: 0

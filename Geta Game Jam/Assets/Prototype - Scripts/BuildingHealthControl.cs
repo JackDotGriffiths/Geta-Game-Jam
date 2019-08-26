@@ -17,6 +17,8 @@ public class BuildingHealthControl : MonoBehaviour
     [SerializeField]
     private GameEvent victoryEvent, defeatEvent;
 
+    public GameObject DeathParticles;
+
 
     private int InitialHealth;
 
@@ -64,6 +66,8 @@ public class BuildingHealthControl : MonoBehaviour
             victoryEvent.Raise();
             AudioManager.instance.Play("Victory");
         }
+        
+        Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
 
         Destroy(this.gameObject);       
     }
