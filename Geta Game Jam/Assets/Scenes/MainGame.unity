@@ -3399,6 +3399,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Defeat
+    clip: {fileID: 8300000, guid: 976aa14e6613e74438035a9487fa5772, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1511496114
 Transform:
   m_ObjectHideFlags: 0

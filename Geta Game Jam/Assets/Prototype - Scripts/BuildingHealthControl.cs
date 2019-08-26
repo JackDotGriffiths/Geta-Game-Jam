@@ -50,6 +50,7 @@ public class BuildingHealthControl : MonoBehaviour
         else
         {
             defeatEvent.Raise();
+            AudioManager.instance.Play("Defeat");
         }
 
         if (m_HealthBar != null)
