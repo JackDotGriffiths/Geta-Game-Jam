@@ -45,6 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: AboveFloor
+    uniqueID: 2360527023
+    locked: 0
   - name: Channel
     uniqueID: 2854138781
     locked: 0
