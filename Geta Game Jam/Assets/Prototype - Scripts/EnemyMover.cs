@@ -36,7 +36,10 @@ public class EnemyMover : MonoBehaviour, IPooledObject
 
         if(!isFighting)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
+            if (player != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
+            }
         } 
     }
 
