@@ -44,7 +44,8 @@ public class BuildingHealthControl : MonoBehaviour
     {
         if (this.tag == "Portal")
         {
-            SpawnManager.Instance.Spawners.Remove(this.gameObject);        
+            SpawnManager.Instance.Spawners.Remove(this.gameObject);
+            AudioManager.instance.Play("Screech");
         }
         else
         {
@@ -53,12 +54,14 @@ public class BuildingHealthControl : MonoBehaviour
 
         if (m_HealthBar != null)
         {
+            //AudioManager.instance.Play("Victory");
             Destroy(m_HealthBar);
         }
 
         if(SpawnManager.Instance.Spawners.Count == 0)
         {
             victoryEvent.Raise();
+            AudioManager.instance.Play("Victory");
         }
 
         Destroy(this.gameObject);       
