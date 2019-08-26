@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
         {
             spawners.Add(spawner);
         }
-        currInterval = interval / ((float)spawners.Count * (float)spawners.Count);
+        currInterval = interval / ((float)spawners.Count * ((float)spawners.Count / 2));
         chosenSpawner = spawners[Random.Range(0, spawners.Count)].transform;
         nextSpawn = Time.time + currInterval;
     }

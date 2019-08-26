@@ -44,11 +44,14 @@ public class BlastWave : MonoBehaviour
 
             if (moveBalstWave)
             {
-                currBlastWave.transform.position = Vector3.MoveTowards(currBlastWave.transform.position, targetPortal.transform.position, m_blastSpeed * Time.deltaTime);
-                if (Vector2.Distance(currBlastWave.transform.position, targetPortal.transform.position) < 0.2f)
+                if (currBlastWave != null)
                 {
-                    Destroy(currBlastWave);
-                    moveBalstWave = false;
+                    currBlastWave.transform.position = Vector3.MoveTowards(currBlastWave.transform.position, targetPortal.transform.position, m_blastSpeed * Time.deltaTime);
+                    if (Vector2.Distance(currBlastWave.transform.position, targetPortal.transform.position) < 0.2f)
+                    {
+                        Destroy(currBlastWave);
+                        moveBalstWave = false;
+                    }
                 }
             }
 
